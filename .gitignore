@@ -1,7 +1,5 @@
 *~
 /composer.lock
 vendor/
-/conf/params.ini
+conf/params.ini
 .htaccess
-
-
