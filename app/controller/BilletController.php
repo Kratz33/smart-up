@@ -71,14 +71,14 @@ class BilletController extends Controller {
             // On récupère le pseudo de l'utilisateur pour l'ajouter à chaque commentaire
             $user = Utilisateur::whereId($comment['id_utilisateur'])->first()->toArray();
             // Si l'utilisateur n'est pas radié (! devant une variable vérifie si elle est à false (ou = 0))
-            if(!$user['radie'])
+            /*if(!$user['radie'])
                 // S'il n'est pas radié on récupère son pseudo
                 $comments[$i]['userPseudo'] = $user['pseudo'];
             else
                 // S'il est radié on retire la ligne qui correspond au commentaire de l'utilisateur radié
                 unset($comments[$i]);
             // On peut améliorer la requete avec un join pour éviter le parcours de tableau
-            $i++;
+            $i++;*/
         }
         // On renvoie le tableau des commentaires avec l'ajout du pseudo pour chaque commentaire
         return $comments;
