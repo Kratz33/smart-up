@@ -19,7 +19,7 @@
     </div>
     <div class="col-xs-8 col-xs-offset-2 comments mt20">
         <?php foreach($comments as $comment): ?>
-            <label>Commentaire posté par <?php echo $comment['userPseudo'] ?></label></br>
+            <label>Commentaire posté par <?php echo $comment['userPseudo'] ?>, <le></le> <?php echo $comment['date'] ?></label></br>
             <p>
                 <?php echo $comment['message'] ?>
             </p>

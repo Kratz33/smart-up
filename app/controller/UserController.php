@@ -89,8 +89,26 @@ class UserController extends Controller
             }
         }
 
+        $categories = Categorie::all();
+        // $billetsByCategory pour Google Charts
+        $billetsByCategory = array();
+        // $categoriesWithBillets pour charger le tableau dans la homepage des billets par catégorie
+        $categoriesWithBillets = array();
+        foreach($categories as $category) {
+
+            $billetsCount = count(Billet::where('id_categorie', '=', $category['id'])->get());
+            $billetsByCategory[] = array($category['label'], $billetsCount);
+
+            $categoriesWithBillets[$i]['id'] 			= $category['id'];
+            $categoriesWithBillets[$i]['label'] 		= $category['label'];
+            $categoriesWithBillets[$i]['billets_count'] = $billetsCount;
+
+
+            $i++;
+        }
+
         AnonymousController::header();
-        Controller::$app->render('front/homepage.php', array('billets' => $billets));
+        Controller::$app->render('front/homepage.php', array('billets' => $billets, 'categoriesWithBillets' => $categoriesWithBillets));
         AnonymousController::modals();
         AnonymousController::footer();
 
