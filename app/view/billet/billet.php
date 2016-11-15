@@ -23,6 +23,14 @@
             <p>
                 <?php echo $comment['message'] ?>
             </p>
+            <p id="vote">
+                <a href="#">
+                    <i class="fa fa-plus fa-2x"></i>
+                </a>
+                <a href="#">
+                    <i class="fa fa-minus fa-2x"></i>
+                </a>
+            </p>
         <?php endforeach; ?>
     </div>
     <?php if(isset($_SESSION['userProfile']) &&  $_SESSION['userProfile'] == "membre"): ?>
