@@ -27,10 +27,10 @@
                 </p>
                 <p id="vote">
                     <a href="#">
-                        <i class="fa fa-plus fa-2x"></i>
+                        <i class="fa fa-plus fa-2x"></i> <?php echo $comment['vote_pos'] ?>
                     </a>
                     <a href="#">
-                        <i class="fa fa-minus fa-2x"></i>
+                        <i class="fa fa-minus fa-2x"></i> <?php echo $comment['vote_neg'] ?>
                     </a>
                 </p>
             <?php endforeach; ?>
