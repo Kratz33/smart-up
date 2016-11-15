@@ -18,7 +18,6 @@ class Utilisateur extends \Illuminate\Database\Eloquent\Model{
             $this->mail     = $valueArray['email'];
             $this->mdp      = $valueArray['password'];
             //$this->profil = $valueArray['profile'];
-            $this->radie    = 0;
             $this->save();
         }
         catch (\Exception $e) {
