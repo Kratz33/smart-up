@@ -73,6 +73,25 @@ class BilletController extends Controller {
             $arrayVotes = $comment->getVotes();
             $comment['vote_pos'] = $arrayVotes['vote_pos'];
             $comment['vote_neg'] = $arrayVotes['vote_neg'];
+
+            // On vérifie si l'utilisateur courant a voté ou non pour le commentaire courant
+            if ($_SESSION['userId']) {
+                $vote = \app\models\Vote::where("commentaire_id", '=', $comment['id'])
+                    ->where("utilisateur_id", '=', $_SESSION['userId'])
+                    ->first();
+                if (!is_null($vote)) {
+                    $vote = $vote->toArray();
+                    if($vote['valeur'] == 1) {
+                        $comment['vote_color'] = "green";
+                    }
+                    else {
+                        $comment['vote_color'] = "red";
+                    }
+                }
+                else {
+                    $comment['vote_color'] = "";
+                }
+            }
         }
         // On renvoie le tableau des commentaires avec l'ajout du pseudo pour chaque commentaire
         return $comments;

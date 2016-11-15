@@ -121,3 +121,13 @@
 .input[type="checkbox"], input[type="radio"] {
     margin: 0 !important;
 }
+
+.t-green {
+    color: green;
+}
+
+/***************** Post Page ********************/
+
+p#vote a {
+    color: #424242;
+}

@@ -35,7 +35,10 @@
                             )
                         )
                         ?>">
-                        <i class="fa fa-plus fa-2x"></i> <?php echo $comment['vote_pos'] ?>
+                        <span class="
+                            <?php if($comment['vote_color'] == 'green'){ echo 't-green'; } ?>">
+                            <i class="fa fa-plus fa-2x"></i> <?php echo $comment['vote_pos'] ?>
+                        </span>
                     </a>
                     <a href=
                        "<?php
@@ -46,7 +49,10 @@
                                 )
                             )
                        ?>">
-                       <i class="fa fa-minus fa-2x"></i> <?php echo $comment['vote_neg'] ?>
+                        <span class="
+                            <?php if($comment['vote_color'] == 'red'){ echo 't-red'; } ?>">
+                            <i class="fa fa-minus fa-2x"></i> <?php echo $comment['vote_neg'] ?>
+                        </span>
                     </a>
                 </p>
             <?php endforeach; ?>
