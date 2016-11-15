@@ -74,7 +74,7 @@
 							<div class="<?php echo $classBootStrap ?>">
 								<a class="header-get-billets" href="<?php echo $app->urlFor('billets', array('id' => 1)) ?>">
 									<div class="t-center">
-										Voir les billets
+										<i class="fa fa-bell fa-2x"></i>
 									</div>
 								</a>
 							</div>
