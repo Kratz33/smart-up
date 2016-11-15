@@ -26,11 +26,27 @@
                     <?php echo $comment['message'] ?>
                 </p>
                 <p id="vote">
-                    <a href="#">
+                    <a href=
+                        "<?php
+                        echo $app->urlFor('vote', array(
+                                'comment_id' => $comment['id'],
+                                'value'      => 1,
+                                'user_id'    => $_SESSION['userId'],
+                            )
+                        )
+                        ?>">
                         <i class="fa fa-plus fa-2x"></i> <?php echo $comment['vote_pos'] ?>
                     </a>
-                    <a href="#">
-                        <i class="fa fa-minus fa-2x"></i> <?php echo $comment['vote_neg'] ?>
+                    <a href=
+                       "<?php
+                            echo $app->urlFor('vote', array(
+                                'comment_id' => $comment['id'],
+                                'value'      => -1,
+                                'user_id'    => $_SESSION['userId'],
+                                )
+                            )
+                       ?>">
+                       <i class="fa fa-minus fa-2x"></i> <?php echo $comment['vote_neg'] ?>
                     </a>
                 </p>
             <?php endforeach; ?>
