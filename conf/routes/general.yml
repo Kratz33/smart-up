@@ -122,5 +122,5 @@ billets_by_category:
 vote:
     url: /vote/:comment_id/:value/:user_id
     controller: CommentController
-    action:     addVote
+    action:     vote
     method:     get
