@@ -29,7 +29,7 @@ class CommentController extends Controller {
             $vote = \app\models\Vote::where("commentaire_id", '=', $commentId)
                 ->where("utilisateur_id", '=', $userId)
                 ->first();
-            if(is_null($vote)) {
+            if (is_null($vote)) {
                 $this->createVote($value, $userId, $commentId);
             }
             else {
