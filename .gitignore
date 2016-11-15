@@ -3,3 +3,4 @@
 vendor/
 conf/params.ini
 .htaccess
+/nbproject
