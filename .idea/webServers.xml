@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="fe14519f-94c1-4072-a118-f2c5ac91c378" name="blogslim" url="http://webetu.iutnc.univ-lorraine.fr/www/chantavo2u">
+        <fileTransfer host="webetu.iutnc.univ-lorraine.fr/www/chantavo2u" port="22" accessType="SFTP" password="dffadfe6dfebdfeddfffdfefdf95df9bdf9bdf9ddf95" username="chantavo2u">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

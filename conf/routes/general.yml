@@ -1,0 +1,120 @@
+root:
+    url:        /
+    controller: AnonymousController
+    action:     index
+    method:     get
+
+testname:
+    url:        /test
+    controller: AnonymousController
+    action:     yopla
+    method:     get
+
+affitem:
+    url:        /item/:id
+    controller: AnonymousController
+    action:     affiche_item
+    method:     get
+
+ajout_info:
+    url:	/ajout_info
+    controller: AnonymousController
+    action: 	insert_info
+    method: 	post
+
+inscription:
+    url:	/inscription
+    controller: UserController
+    action: 	inscription
+    method: 	post
+
+connexion:
+    url:	/connexion
+    controller: UserController
+    action: 	connexion
+    method: 	post
+
+logout:
+    url:	/logout
+    controller: UserController
+    action: 	logout
+    method: 	get
+
+profile:
+    url:	/profil
+    controller: UserController
+    action: 	getProfile
+    method: 	get
+
+edit_profile:
+    url:	/mon-profil
+    controller: UserController
+    action: 	editProfile
+    method: 	post
+
+users:
+    url:	/utilisateurs
+    controller: UserController
+    action: 	getUsers
+    method: 	get
+
+edit_users:
+    url:	/utilisateurs
+    controller: UserController
+    action: 	editUsers
+    method: 	post
+
+
+categories:
+    url:	/categories
+    controller: CategorieController
+    action: 	getCategories
+    method: 	get
+
+add_category:
+    url:	/categories
+    controller: CategorieController
+    action: 	addCategory
+    method: 	post
+
+edit_category:
+    url:	/edit-category/:id
+    controller: CategorieController
+    action: 	editCategory
+    method: 	post
+
+delete_category:
+    url:	/delete-category/:id
+    controller: CategorieController
+    action: 	deleteCategory
+    method: 	post
+
+billets:
+    url:	/billets/:page
+    controller: BilletController
+    action: 	getBillets
+    method: 	get
+
+billet:
+    url:	/billet/:id
+    controller: BilletController
+    action: 	getBillet
+    method: 	get
+
+add_billet:
+    url:	/billets/:page
+    controller: BilletController
+    action: 	addBillet
+    method: 	post
+
+add_comment:
+    url:	/billet/:id
+    controller: BilletController
+    action: 	addComment
+    method: 	post
+
+billets_by_category:
+    url:  /billets-par-category/:id/:page
+    controller: CategorieController
+    action: 	getBilletsByCategory
+    method: 	get
