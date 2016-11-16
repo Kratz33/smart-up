@@ -12,10 +12,11 @@
 
 		<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+		<script src="/smart-up/js/materialize.js"></script>
 		<script src="/smart-up/js/bootstrap/bootstrap.min.js"></script>
 		<script src="/smart-up/js/blogslim.js"></script>
 		<script src="/smart-up/js/init.js"></script>
-		<script src="/smart-up/js/materialize.js"></script>
+		
 
 	</head>
     <body class="container">
@@ -27,7 +28,7 @@
                         <?php if(!isset($_SESSION["userPseudo"])): ?>
                             <ul class="right hide-on-med-and-down">
                                 <li><a class="header-inscription" id="header-inscription"><i class="fa fa-user-plus fa-2x"></i>S'inscrire</a></li>
-                                <li><a class="header-inscription" id="header-inscription"><i class="fa fa-user fa-2x"></i>Se connecter</a></li>
+                                <li><a class="header-connexion" id="header-connexion"><i class="fa fa-user fa-2x"></i>Se connecter</a></li>
                             </ul>
                         <?php else: ?>
                             <?php if(isset($_SESSION["userProfile"]) && $_SESSION["userProfile"] == "admin"): ?>
@@ -46,25 +47,8 @@
                                 <li><a href="<?php echo $app->urlFor('logout');?>" class="header-logout" id="header-logout"><i class="fa fa-power-off fa-2x"></i>Se déconnecter</a></li>
                             </ul>
                         <?php endif ?>
-                        <!--
-                        <ul id="nav-mobile" class="side-nav">
-							<li><a href="#">Navbar Link</a></li>
-						</ul>
-						<a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-					    -->
 					</div>
 				</nav>
-
-                <!-- Bloc Recherche -->
-                <!--
-                <div class="ui-widget col-xs-4">
-					<div id="div-autocomplete">
-						<label for="autocomplete">Rechercher :</label>
-						<input id="autocomplete">
-						<ul></ul>
-					</div>
-				</div>
-                -->
 			</section>
 		</div>
 		<script type="text/javascript">
