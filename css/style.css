@@ -12,3 +12,32 @@
 .icon-block .material-icons {
 	font-size: inherit;
 }
+
+/*
+* Made By Me
+*/
+/***************** HEADER *****************/
+
+.header-inscription i{
+	margin-right: 10px;
+}
+
+/***************** FOOTER *******************/
+
+.footer {
+    padding: 30px;
+    background: #454545;
+    color: white;
+    bottom: 0;
+    margin-top: 40px;
+}
+
+/***************** Modals ********************/
+#modal{
+    z-index: 1000;
+}
+
+.modal-body input, .modal-body input{
+    width: 100%;
+    padding: 5px;
+}
