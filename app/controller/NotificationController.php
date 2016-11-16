@@ -9,6 +9,8 @@ class NotificationController extends Controller {
 
     public function addNotifification($userId){
 
+        // ajax has to come !
+
     }
 
 }

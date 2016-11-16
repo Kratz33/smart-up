@@ -125,13 +125,7 @@ class BilletController extends Controller {
                 //$professionnels = Utilisateur::where("type_id", "=", 2)->whereIn("id", $ids)->get()->toArray();
                 foreach($ids as $id){
                     $notification = new \app\models\Notification();
-                    $notification->lu = 0;
-                    $notification->message = "Nouveau post pour vous";
-                    $notification->utilisateur_id = $id;
-                    $notification->posts_id = $billet->id;
-                    $notification->date = new DateTime();
-                    
-                    $notification->save();
+                    $notification->addNotification($id, "test");
                 }                
             }
             catch(Exception $e) {
