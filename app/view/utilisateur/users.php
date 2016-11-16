@@ -28,12 +28,12 @@
                     </td>
                     <td class="col-xs-3">
 
-                        <input type="radio" name="user-radie-<?php echo $user['id'] ?>" value="0"
-                            <?php if($user['radie'] == 0): ?> checked=checked" <?php endif; ?>>
+                        <input type="radio" name="user-premium-<?php echo $user['id'] ?>" value="0"
+                            <?php if($user['premium'] == 0): ?> checked=checked" <?php endif; ?>>
                         Non
                         </input>
-                        <input type="radio" name="user-radie-<?php echo $user['id'] ?>"
-                            <?php if($user['radie'] == 1): ?> checked=checked" <?php endif; ?>value="1">
+                        <input type="radio" name="user-premium-<?php echo $user['id'] ?>"
+                            <?php if($user['premium'] == 1): ?> checked=checked" <?php endif; ?>value="1">
                         Oui
                         </input>
                     </td>

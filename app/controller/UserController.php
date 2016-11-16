@@ -19,6 +19,8 @@ class UserController extends Controller
                 'firstname' => $app->request->params('inscription-firstname'),
                 'email'     => $app->request->params('inscription-mail'),
                 'password'  => md5($app->request->params('inscription-password')),
+				'type'   => $app->request->params('inscription-type'),
+				'premium'      => $app->request->params('inscription-premium'),
 				
             );
 
@@ -162,8 +164,8 @@ class UserController extends Controller
         $users = Utilisateur::whereProfil("membre")->get();
 
         foreach($users as $user) {
-            $postValue      = $app->request->post('user-radie-' . $user['id']);
-            $user->radie    = $postValue;
+            $postValue      = $app->request->post('user-premium-' . $user['id']);
+            $user->premium    = $postValue;
             $user->save();
         }
 
