@@ -101,17 +101,23 @@ billets:
     action: 	getBillets
     method: 	get
 
+add_billet_get:
+    url:	/billet/add
+    controller: BilletController
+    action: 	addBillet
+    method:     get
+    
+add_billet_post:
+    url:	/billet/add
+    controller: BilletController
+    action: 	addBillet
+    method:     post
+
 billet:
     url:	/billet/:id
     controller: BilletController
     action: 	getBillet
-    method: 	get
-
-add_billet:
-    url:	/billets/:page
-    controller: BilletController
-    action: 	addBillet
-    method: 	post
+    method:     get
 
 add_comment:
     url:	/billet/:id
@@ -129,4 +135,4 @@ vote:
     url: /vote/:comment_id/:value/:user_id
     controller: CommentController
     action:     vote
-    method:     get
+    method:     post
