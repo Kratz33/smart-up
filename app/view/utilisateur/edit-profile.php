@@ -6,7 +6,7 @@
                 <?php echo $message ?>
             </div>
         <?php endif; ?>
-        <form method="post" action="<?php echo $app->urlFor('edit_profile') ?>">
+        <form method="post" action="<?php echo $app->urlFor('save_profile') ?>">
             <div class="col-xs-12 mt20">
                 <label for="edit-profile-lastname">Nom :</label></br>
                 <input type="text" id="edit-profile-lastname" name="edit-profile-lastname"

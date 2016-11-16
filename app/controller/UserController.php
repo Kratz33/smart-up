@@ -125,12 +125,24 @@ class UserController extends Controller
         $user = Utilisateur::wherePseudo($_SESSION["userPseudo"])->get()->toArray();
 
         AnonymousController::header();
-        Controller::$app->render('utilisateur/edit-profile.php', array('user' => $user[0]));
+        Controller::$app->render('utilisateur/profil.php', array('user' => $user[0]));
         AnonymousController::modals();
         AnonymousController::footer();
     }
 
     public function editProfile() {
+
+        // On charge les données de l'utilisateur courant en mode édition
+        $user = Utilisateur::wherePseudo($_SESSION["userPseudo"])->get()->toArray();
+
+        AnonymousController::header();
+        Controller::$app->render('utilisateur/edit-profile.php', array('user' => $user[0]));
+        AnonymousController::modals();
+        AnonymousController::footer();
+
+    }
+
+    public function saveProfile() {
 
         $app = new \Slim\Slim();
         // On charge les données de l'utilisateur courant
@@ -141,7 +153,7 @@ class UserController extends Controller
         $message = $user->editProfile($app->request->params());
 
         AnonymousController::header();
-        Controller::$app->render('utilisateur/edit-profile.php', array('user' => $user, 'message' => $message));
+        Controller::$app->render('utilisateur/profil.php', array('user' => $user, 'message' => $message));
         AnonymousController::modals();
         AnonymousController::footer();
     }
