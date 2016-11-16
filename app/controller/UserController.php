@@ -39,6 +39,8 @@ class UserController extends Controller
     public function connexion()
     {
 
+        AnonymousController::header();
+
         $app = new \Slim\Slim();
 
         // Récupération de l'utilisateur en fonction du pseudo et du mot de passe renseignées
@@ -61,10 +63,9 @@ class UserController extends Controller
             $message = "Le pseudo et/ou le mot de passe n'est/ne sont pas bon(s), merci de retenter de vous connecter";
         }
 
-        AnonymousController::header();
-
         Controller::$app->render('utilisateur/connexion.php', array('message' => $message));
 
+        AnonymousController::modals();
         AnonymousController::footer();
     }
 
