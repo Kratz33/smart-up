@@ -97,28 +97,56 @@ class BilletController extends Controller {
         return $comments;
     }
 
-    public function addBillet($id) {
-
+    public function addBillet() {
+        
+        AnonymousController::header();
         $app        = new \Slim\Slim();
-        $billet     = new Billet();
-        $title      = $app->request->params('add-billet-title');
-        $categoryId = $app->request->params('add-billet-category');
-        $message    = $app->request->params('add-billet-message');
-        $userId     = $_SESSION['userId'];
+        
+        //Si c'est du post, on enregistre le post
+        if($app->request->isPost()){
+            $billet     = new Billet();
+            $title      = $app->request->params('title');
+            $categoryId = $app->request->params('category');
+            $message    = $app->request->params('description');
+            $userId     = $_SESSION['userId'];
 
-        try {
-            $billet->titre          = $title;
-            $billet->id_categorie   = $categoryId;
-            $billet->message        = $message;
-            $billet->id_utilisateur = $userId;
-            $billet->save();
+            try {
+                $billet->titre          = $title;
+                $billet->id_categorie   = $categoryId;
+                $billet->message        = $message;
+                $billet->id_utilisateur = $userId;
+                
+                $billet->save();
+                
+                //Création des notifications
+                //Récupérer les pro intéréssé a la catégories
+                $util_categ = \app\models\UtilCateg::where("categorie_id", "=", $categoryId)->get()->toArray();
+                $ids = $this->sortIdUtilCateg($util_categ);
+                //$professionnels = Utilisateur::where("type_id", "=", 2)->whereIn("id", $ids)->get()->toArray();
+                foreach($ids as $id){
+                    $notification = new \app\models\Notification();
+                    $notification->lu = 0;
+                    $notification->message = "Nouveau post pour vous";
+                    $notification->utilisateur_id = $id;
+                    $notification->posts_id = $billet->id;
+                    $notification->date = new DateTime();
+                    
+                    $notification->save();
+                }                
+            }
+            catch(Exception $e) {
+                echo $e;
+            }
         }
-        catch(Exception $e) {
-            echo $e;
-        }
+        
+        $categories = Categorie::all();
+        
+        Controller::$app->render('billet/add_billet.php', array('categories'=>$categories));
 
-        $this->getBillets($id);
-
+        AnonymousController::modals();
+        AnonymousController::footer();
+        
+        
     }
 
     public function addComment($id) {
@@ -131,6 +159,14 @@ class BilletController extends Controller {
         $comment->save();
         $this->getBillet($id);
 
+    }
+    
+    private function sortIdUtilCateg($util_categ){
+        $ids = array();
+        foreach ($util_categ as $el){
+            array_push($ids, $el['utilisateur_id']);
+        }
+        return $ids;
     }
 
 }
