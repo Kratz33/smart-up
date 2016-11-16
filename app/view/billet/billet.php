@@ -82,20 +82,57 @@
     function vote(sendData) {
         $url = "/smart-up/vote/" + sendData['comment_id'] + "/" + sendData['value'] + "/" + sendData['user_id'];
 
-        console.log($url);
         $.ajax({
             url: $url,
-            type: "GET",
-            contentType: false,
-            processData: false,
-            dataType: "json",
+            type: "POST",
             data: sendData,
             success: function() {
-                console.log("success !")
+                console.log("success !");
+                if(sendData['value'] == -1
+                    && !$("#comment-" + sendData['comment_id'] + " a#vote-neg span").hasClass("t-red")) {
+                    $("#comment-" + sendData['comment_id'] + " a#vote-neg span").addClass("t-red");
+                    $("#comment-" + sendData['comment_id'] + " span#result-neg").html(
+                        parseInt($("#comment-" + sendData['comment_id'] + " span#result-neg").html())+1
+                    );
+                    if($("#comment-" + sendData['comment_id'] + " a#vote-pos span").hasClass("t-green")) {
+                        $("#comment-" + sendData['comment_id'] + " span#result-pos").html(
+                            parseInt($("#comment-" + sendData['comment_id'] + " span#result-pos").html())-1
+                        );
+                        $("#comment-" + sendData['comment_id'] + " a#vote-pos span").removeClass("t-green");
+                    }
+                }
+                else if(sendData['value'] == -1
+                    && $("#comment-" + sendData['comment_id'] + " a#vote-neg span").hasClass("t-red")) {
+                    $("#comment-" + sendData['comment_id'] + " span#result-neg").html(
+                        parseInt($("#comment-" + sendData['comment_id'] + " span#result-neg").html())-1
+                    );
+                    $("#comment-" + sendData['comment_id'] + " a#vote-neg span").removeClass("t-red");
+                }
+                else if(sendData['value'] == 1
+                    && !$("#comment-" + sendData['comment_id'] + " a#vote-pos span").hasClass("t-green")) {
+                    $("#comment-" + sendData['comment_id'] + " a#vote-pos span").addClass("t-green");
+                    $("#comment-" + sendData['comment_id'] + " span#result-pos").html(
+                        parseInt($("#comment-" + sendData['comment_id'] + " span#result-pos").html())+1
+                    );
+                    if($("#comment-" + sendData['comment_id'] + " a#vote-neg span").hasClass("t-red")) {
+                        $("#comment-" + sendData['comment_id'] + " span#result-neg").html(
+                            parseInt($("#comment-" + sendData['comment_id'] + " span#result-neg").html())-1
+                        );
+                        $("#comment-" + sendData['comment_id'] + " a#vote-neg span").removeClass("t-red");
+                    }
+                }
+                else if(sendData['value'] == 1
+                    && $("#comment-" + sendData['comment_id'] + " a#vote-pos span").hasClass("t-green")){
+                    $("#comment-" + sendData['comment_id'] + " span#result-pos").html(
+                        parseInt($("#comment-" + sendData['comment_id'] + " span#result-pos").html())-1
+                    );
+                    $("#comment-" + sendData['comment_id'] + " a#vote-pos span").removeClass("t-green");
+                }
+                return false;
             },
-            error: function() {
-                console.log("Error, please contact the website admin who'll never answer");
-            }
+            error : function(xhr,status,error){
+                alert("Erreur, veuillez contacter l'administrateur du site");
+            },
         });
     }
 </script>
