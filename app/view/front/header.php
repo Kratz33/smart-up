@@ -8,8 +8,8 @@
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		<link rel="stylesheet" href="/smart-up/css/bootstrap/bootstrap.min.css" media="screen" type="text/css" rel="stylesheet"/>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-		<link rel="stylesheet" href="/smart-up/css/style.css" media="screen" type="text/css" rel="stylesheet"/>
 		<link rel="stylesheet" href="/smart-up/css/materialize.css" media="screen" type="text/css" rel="stylesheet"/>
+		<link rel="stylesheet" href="/smart-up/css/style.css" media="screen" type="text/css" rel="stylesheet"/>
 
 		<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
