@@ -48,6 +48,8 @@
         <a href="<?php echo $app->urlFor('billets', array('page' => $i)); ?>" class=""> <?php echo $i ?> </a>
     <?php endfor; ?>
 </div>
-<div class="col-xs-12">
-    <button id="add-billet" class="add-billet"> Ajouter un billet</button>
-</div>
+<?php if(isset($_SESSION['userType']) &&  $_SESSION['userType'] == 1): ?>
+    <div class="col-xs-12">
+        <button id="add-billet" class="add-billet"> Ajouter un billet</button>
+    </div>
+<?php endif; ?>

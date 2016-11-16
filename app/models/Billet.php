@@ -9,6 +9,4 @@ class Billet extends \Illuminate\Database\Eloquent\Model {
     protected $primaryKey = 'id';
     public $timestamps = false;
 
-   
-
 }

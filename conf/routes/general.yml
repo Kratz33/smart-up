@@ -118,3 +118,9 @@ billets_by_category:
     controller: CategorieController
     action: 	getBilletsByCategory
     method: 	get
+
+vote:
+    url: /vote/:comment_id/:value/:user_id
+    controller: CommentController
+    action:     vote
+    method:     get

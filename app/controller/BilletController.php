@@ -70,15 +70,28 @@ class BilletController extends Controller {
         foreach ($comments as $comment) {
             // On récupère le pseudo de l'utilisateur pour l'ajouter à chaque commentaire
             $user = Utilisateur::whereId($comment['id_utilisateur'])->first()->toArray();
-            // Si l'utilisateur n'est pas radié (! devant une variable vérifie si elle est à false (ou = 0))
-            /*if(!$user['radie'])
-                // S'il n'est pas radié on récupère son pseudo
-                $comments[$i]['userPseudo'] = $user['pseudo'];
-            else
-                // S'il est radié on retire la ligne qui correspond au commentaire de l'utilisateur radié
-                unset($comments[$i]);
-            // On peut améliorer la requete avec un join pour éviter le parcours de tableau
-            $i++;*/
+            $arrayVotes = $comment->getVotes();
+            $comment['vote_pos'] = $arrayVotes['vote_pos'];
+            $comment['vote_neg'] = $arrayVotes['vote_neg'];
+
+            // On vérifie si l'utilisateur courant a voté ou non pour le commentaire courant
+            if (isset($_SESSION['userId'])) {
+                $vote = \app\models\Vote::where("commentaire_id", '=', $comment['id'])
+                    ->where("utilisateur_id", '=', $_SESSION['userId'])
+                    ->first();
+                if (!is_null($vote)) {
+                    $vote = $vote->toArray();
+                    if($vote['valeur'] == 1) {
+                        $comment['vote_color'] = "green";
+                    }
+                    else {
+                        $comment['vote_color'] = "red";
+                    }
+                }
+                else {
+                    $comment['vote_color'] = "";
+                }
+            }
         }
         // On renvoie le tableau des commentaires avec l'ajout du pseudo pour chaque commentaire
         return $comments;

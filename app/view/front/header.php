@@ -74,7 +74,7 @@
 							<div class="<?php echo $classBootStrap ?>">
 								<a class="header-get-billets" href="<?php echo $app->urlFor('billets', array('id' => 1)) ?>">
 									<div class="t-center">
-										<i class="fa fa-bell fa-2x"></i>
+										<i class="fa fa-power-off fa-2x"></i>
 									</div>
 								</a>
 							</div>

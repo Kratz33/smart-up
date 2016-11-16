@@ -50,6 +50,9 @@ class UserController extends Controller
                 $_SESSION["userProfile"] = $user['profil'];
                 $_SESSION["userPseudo"] = $user['pseudo'];
                 $_SESSION['userId'] = $user['id'];
+                $_SESSION['userPrenium'] = $user['prenium'];
+                $_SESSION['userType'] = $user['type_id'];
+
                 $message = "Bienvenue, vous êtes connecté sous le pseudo " . $user['pseudo'];
             } // Sinon
             else {
@@ -73,6 +76,8 @@ class UserController extends Controller
         $_SESSION["userPseudo"]     = null;
         $_SESSION["userProfile"]    = null;
         $_SESSION["userId"]         = null;
+        $_SESSION['userPrenium']    = null;
+        $_SESSION['userType']       = null;
 
         $app = new \Slim\Slim();
         $app->deleteCookie('user');
