@@ -19,6 +19,9 @@ class UserController extends Controller
                 'firstname' => $app->request->params('inscription-firstname'),
                 'email'     => $app->request->params('inscription-mail'),
                 'password'  => md5($app->request->params('inscription-password')),
+				'type'   => $app->request->params('inscription-type'),
+				'premium'      => $app->request->params('inscription-premium'),
+				
             );
 
             $user = new \app\models\Utilisateur();
@@ -36,6 +39,8 @@ class UserController extends Controller
     public function connexion()
     {
 
+        AnonymousController::header();
+
         $app = new \Slim\Slim();
 
         // Récupération de l'utilisateur en fonction du pseudo et du mot de passe renseignées
@@ -44,29 +49,23 @@ class UserController extends Controller
             ->first();
         // Si la base de données match avec le pseudo et le mot de passe et qu'il n'est pas radié
         if(isset($user)) {
-            if ($user['radie'] == 0) {
-                // On créé un cookie Slim pour y inclure le profil, le pseudo et l'id (utilisés un peu partout)
-                $app->add(new \Slim\Middleware\SessionCookie());
-                $_SESSION["userProfile"] = $user['profil'];
-                $_SESSION["userPseudo"] = $user['pseudo'];
-                $_SESSION['userId'] = $user['id'];
-                $_SESSION['userPrenium'] = $user['prenium'];
-                $_SESSION['userType'] = $user['type_id'];
+            // On créé un cookie Slim pour y inclure le profil, le pseudo et l'id (utilisés un peu partout)
+            $app->add(new \Slim\Middleware\SessionCookie());
+            $_SESSION["userProfile"] = $user['profil'];
+            $_SESSION["userPseudo"] = $user['pseudo'];
+            $_SESSION['userId'] = $user['id'];
+            $_SESSION['userPremium'] = $user['premium'];
+            $_SESSION['userType'] = $user['type_id'];
 
-                $message = "Bienvenue, vous êtes connecté sous le pseudo " . $user['pseudo'];
-            } // Sinon
-            else {
-                $message = "Vous avez été radié(e) du site, contactez l'administrateur du site pour de plus amples informations";
-            }
+            $message = "Bienvenue, vous êtes connecté sous le pseudo " . $user['pseudo'];
         }
         else{
             $message = "Le pseudo et/ou le mot de passe n'est/ne sont pas bon(s), merci de retenter de vous connecter";
         }
 
-        AnonymousController::header();
-
         Controller::$app->render('utilisateur/connexion.php', array('message' => $message));
 
+        AnonymousController::modals();
         AnonymousController::footer();
     }
 
@@ -76,7 +75,7 @@ class UserController extends Controller
         $_SESSION["userPseudo"]     = null;
         $_SESSION["userProfile"]    = null;
         $_SESSION["userId"]         = null;
-        $_SESSION['userPrenium']    = null;
+        $_SESSION['userPremium']    = null;
         $_SESSION['userType']       = null;
 
         $app = new \Slim\Slim();
@@ -178,8 +177,8 @@ class UserController extends Controller
         $users = Utilisateur::whereProfil("membre")->get();
 
         foreach($users as $user) {
-            $postValue      = $app->request->post('user-radie-' . $user['id']);
-            $user->radie    = $postValue;
+            $postValue      = $app->request->post('user-premium-' . $user['id']);
+            $user->premium    = $postValue;
             $user->save();
         }
 
