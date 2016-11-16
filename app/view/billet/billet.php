@@ -124,8 +124,7 @@
                 return false;
             },
             error : function(xhr,status,error){
-                alert(status);
-                alert(error);
+                alert("Erreur, veuillez contacter l'administrateur du site");
             },
         });
     }
