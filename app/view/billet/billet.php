@@ -26,29 +26,25 @@
                     <?php echo $comment['message'] ?>
                 </p>
                 <p id="vote">
-                    <a href=
-                        "<?php
-                        echo $app->urlFor('vote', array(
-                                'comment_id' => $comment['id'],
-                                'value'      => 1,
-                                'user_id'    => $_SESSION['userId'],
-                            )
-                        )
-                        ?>">
+                    <?php $array = array(
+                        'comment_id' => $comment['id'],
+                        'value'      => 1,
+                        'user_id'    => $_SESSION['userId'],
+                    );
+                    ?>
+                    <a onclick='vote(<?php echo(json_encode($array)); ?>);'>
                         <span class="
                             <?php if($comment['vote_color'] == 'green'){ echo 't-green'; } ?>">
                             <i class="fa fa-plus fa-2x"></i> <?php echo $comment['vote_pos'] ?>
                         </span>
                     </a>
-                    <a href=
-                       "<?php
-                            echo $app->urlFor('vote', array(
-                                'comment_id' => $comment['id'],
-                                'value'      => -1,
-                                'user_id'    => $_SESSION['userId'],
-                                )
-                            )
-                       ?>">
+                    <?php $array = array(
+                        'comment_id' => $comment['id'],
+                        'value'      => -1,
+                        'user_id'    => $_SESSION['userId'],
+                        );
+                    ?>
+                    <a onclick='vote(<?php echo(json_encode($array)); ?>);'>
                         <span class="
                             <?php if($comment['vote_color'] == 'red'){ echo 't-red'; } ?>">
                             <i class="fa fa-minus fa-2x"></i> <?php echo $comment['vote_neg'] ?>
@@ -73,17 +69,24 @@
         <?php endif; ?>
     <?php endif; ?>
 </div>
-<script type="application/javascript">
-    $.ajax({
-        type: 'GET',
-        url: 'vote',
-        dataType: 'json',
-        success: function(json){
-            console.log( json );
-        },
-    });
+<script type="text/javascript">
+    function vote(sendData) {
+        $url = "/smart-up/vote/" + sendData['comment_id'] + "/" + sendData['value'] + "/" + sendData['user_id'];
 
-    Répondre avec citation Répondre avec citation   0  0
-
-
+        console.log($url);
+        $.ajax({
+            url: $url,
+            type: "GET",
+            contentType: false,
+            processData: false,
+            dataType: "json",
+            data: sendData,
+            success: function() {
+                console.log("success !")
+            },
+            error: function() {
+                console.log("Error, please contact the website admin who'll never answer");
+            }
+        });
+    }
 </script>

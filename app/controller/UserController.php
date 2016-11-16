@@ -19,6 +19,8 @@ class UserController extends Controller
                 'firstname' => $app->request->params('inscription-firstname'),
                 'email'     => $app->request->params('inscription-mail'),
                 'password'  => md5($app->request->params('inscription-password')),
+				'type'   => $app->request->params('inscription-type'),
+				'premium'      => $app->request->params('inscription-premium'),
 				
             );
 
@@ -36,6 +38,8 @@ class UserController extends Controller
 
     public function connexion()
     {
+
+        AnonymousController::header();
 
         $app = new \Slim\Slim();
 
@@ -59,10 +63,9 @@ class UserController extends Controller
             $message = "Le pseudo et/ou le mot de passe n'est/ne sont pas bon(s), merci de retenter de vous connecter";
         }
 
-        AnonymousController::header();
-
         Controller::$app->render('utilisateur/connexion.php', array('message' => $message));
 
+        AnonymousController::modals();
         AnonymousController::footer();
     }
 
@@ -121,12 +124,24 @@ class UserController extends Controller
         $user = Utilisateur::wherePseudo($_SESSION["userPseudo"])->get()->toArray();
 
         AnonymousController::header();
-        Controller::$app->render('utilisateur/edit-profile.php', array('user' => $user[0]));
+        Controller::$app->render('utilisateur/profil.php', array('user' => $user[0]));
         AnonymousController::modals();
         AnonymousController::footer();
     }
 
     public function editProfile() {
+
+        // On charge les données de l'utilisateur courant en mode édition
+        $user = Utilisateur::wherePseudo($_SESSION["userPseudo"])->get()->toArray();
+
+        AnonymousController::header();
+        Controller::$app->render('utilisateur/edit-profile.php', array('user' => $user[0]));
+        AnonymousController::modals();
+        AnonymousController::footer();
+
+    }
+
+    public function saveProfile() {
 
         $app = new \Slim\Slim();
         // On charge les données de l'utilisateur courant
@@ -137,7 +152,7 @@ class UserController extends Controller
         $message = $user->editProfile($app->request->params());
 
         AnonymousController::header();
-        Controller::$app->render('utilisateur/edit-profile.php', array('user' => $user, 'message' => $message));
+        Controller::$app->render('utilisateur/profil.php', array('user' => $user, 'message' => $message));
         AnonymousController::modals();
         AnonymousController::footer();
     }
@@ -162,8 +177,8 @@ class UserController extends Controller
         $users = Utilisateur::whereProfil("membre")->get();
 
         foreach($users as $user) {
-            $postValue      = $app->request->post('user-radie-' . $user['id']);
-            $user->radie    = $postValue;
+            $postValue      = $app->request->post('user-premium-' . $user['id']);
+            $user->premium    = $postValue;
             $user->save();
         }
 

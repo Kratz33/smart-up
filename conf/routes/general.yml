@@ -47,9 +47,15 @@ profile:
     method: 	get
 
 edit_profile:
-    url:	/mon-profil
+    url:	/change-profil
     controller: UserController
     action: 	editProfile
+    method: 	get
+
+save_profile:
+    url:	/mon-profil
+    controller: UserController
+    action: 	saveProfile
     method: 	post
 
 users:
