@@ -16,10 +16,123 @@
 /*
 * Made By Me
 */
+
+/***************** In All Pages ********************/
+.t-red {
+    color: red;
+}
+
+.t-green {
+    color: green;
+}
+
 /***************** HEADER *****************/
 
 .header-inscription i{
 	margin-right: 10px;
+}
+
+/***************** CATEGORIES *****************/
+.container .row{
+    display: inline-block;
+}
+
+table a{
+    margin-left: 10px;
+}
+table p{
+    width: 50px;
+    float: left;
+    text-align: right;;
+}
+
+/***************** BILLETS *****************/
+div.entete{
+    display: block;
+    height: 65px;
+    margin-bottom: 10px;
+}
+div.entete p {
+    position: relative;
+    float: right;
+    text-align: left;
+}
+div.entete p.billet-votes-count{
+    width: 10%;
+}
+div.entete p.billet-commentaires-count{
+    width: 20%;
+}
+
+.billets-ul{
+    display: block;
+    width: 100%; 
+    height: 65px;   
+}
+.billets-ul li{
+    display: inline-block;
+    padding: 22px 0;
+}
+.billets-ul .utilisateur-photo{
+    float: left;
+    padding: 0;
+}
+.billets-ul .billet-titre{
+    float: left;
+    width: 50%;
+    height: 100%;
+    text-overflow: ellipsis;
+}
+.billets-ul .billet-commentaires-count{
+    float: right;
+    width: 20%;
+    height: 100%;
+}
+.billets-ul .billet-votes-count{
+    float: right;
+    width: 10%;
+    height: 100%;
+}
+
+/***************** BILLET *****************/
+div.billet-footer{
+    float: right;
+}
+div.billet-footer p{
+    display: inline-block;
+}
+div.billet-footer #billet-category{
+    font-size: 12px;
+    font-weight: bolder;
+}
+div.billet-footer #billet-date{
+    font-style: italic; 
+}
+.collection-item{
+    padding: 10px;
+}
+.collection div{
+    display: inline-block;
+    height: 100%;
+}
+.collection .commentaire-utilisateur{
+    width: 100px;
+}
+.collection .commentaire-message{
+    width: 450px;
+}
+.collection .commentaire-vote{
+    float: right;
+    width: 25px;
+    min-height: 100px;
+}
+.collection .commentaire-vote a{
+    display: block;
+}
+.collection .billet-date{
+    position: relative;
+    left:75%;
+    font-style: italic;
 }
 
 /***************** FOOTER *******************/

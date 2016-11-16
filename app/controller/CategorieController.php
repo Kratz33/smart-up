@@ -2,6 +2,8 @@
 
 use app\models\Categorie;
 use app\models\Billet;
+use app\models\Comment;
+use app\models\Vote;
 
 class CategorieController extends Controller {
     public function getCategories() {
@@ -124,14 +126,48 @@ class CategorieController extends Controller {
     public function getBilletsByCategory($id, $page) {
         // take pour prendre 20 élément, skip concerne l'offset
         $billets        = Billet::where('id_categorie', '=', $id)->orderBy('date', 'DESC')->take(20)->skip(20 * ($page - 1))->get();
-        $category       = Categorie::whereId($id)->first();
         $countBillets   = count(Billet::where('id_categorie', '=', $id)->get());
-        // Division par 20 arrondie à l'unité supérieure pour mettre en place le pager
         $nbPages        = ceil($countBillets / 20);
+
+        // Ul Billets
+        $billetsWithCommentVote = array();
+        $i = 0;
+        foreach($billets as $billet) {
+            $billetsWithCommentVote[$i]['id'] = $billet['id'];
+            $billetsWithCommentVote[$i]['titre'] = $billet['titre'];
+            $billetsWithCommentVote[$i]['votes_count'] = 0;
+            $billetsWithCommentVote[$i]['commentaires_count'] = 0;
+
+            $comments = Comment::whereIdBillet($billet['id'])->get();
+            foreach($comments as $comment) {
+                $billetsWithCommentVote[$i]['votes_count'] += count(Vote::where('commentaire_id', '=', $comment['id'])->get());
+                $billetsWithCommentVote[$i]['commentaires_count'] += 1;
+            }
+            $i++;           
+        }
+
+        // Table Categories
+        $categories = Categorie::all();
+        $categoriesWithBillets = array();
+        $i = 0;
+        foreach($categories as $category) {
+
+            $billetsCount = count(Billet::where('id_categorie', '=', $category['id'])->get());
+
+            $categoriesWithBillets[$i]['id']            = $category['id'];
+            $categoriesWithBillets[$i]['label']         = $category['label'];
+            $categoriesWithBillets[$i]['billets_count'] = $billetsCount;
+
+            $i++;
+        }
+        
+        $category       = Categorie::whereId($id)->first();
+
         AnonymousController::header();
         Controller::$app->render('billet/billets-by-category.php', array(
-            'billets'   => $billets,
+            'billets'   => $billetsWithCommentVote,
             'category'  => $category,
+            'categories'=> $categoriesWithBillets,
             'nbPages'   => $nbPages,
         ));
         AnonymousController::modals();

@@ -1,41 +1,45 @@
-
-<div class="col-xs-6 col-xs-offset-3 mt40 t-center">
-    <h3> Liste des billets pour la catégorie <?php echo $category['label'] ?></h3>
-    <table class="categories-table col-xs-12">
-        <tr>
-            <th>
-                Titre
-            </th>
-            <th>
-                Date
-            </th>
-            <th>
-                Début du message
-            </th>
-            <th>
-                Action
-            </th>
-        </tr>
-        <?php foreach ($billets as $billet): ?>
-            <tr>
-                <td>
-                    <?php echo $billet['titre'] ?>
-                </td>
-                <td>
-                    <?php echo $billet['date'] ?>
-                </td>
-                <td>
-                    <?php // Prendre les 30 premiers caractères ?>
-                    <?php echo substr($billet['message'], 0, 29) ?>
-                </td>
-                <td>
-                    <a href="<?php echo $app->urlFor('billet', array('id' => $billet['id'])) ?>">
-                        Voir
-                    </a>
-                </td>
-            </tr>
-        <?php endforeach; ?>
+<div class="pager col-xs-3">
+    <table class="categories-table">
+        <tbody>
+             <?php foreach ($categories as $categNav): ?>
+                <tr>
+                    <td>
+                        <a href="<?php echo $app->urlFor('billets_by_category', array('id' => $categNav['id'], 'page' => 1)) ?>"><?php echo $categNav['label']; ?></a>
+                        <p><?php echo $categNav['billets_count']; ?></p>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
     </table>
+</div>
+<div class="col-xs-9 mt40 t-center">
+    <h3><?php echo $category['label'] ?></h3>
+    <div class="entete">
+        <p class="billet-votes-count">
+            Nombre Votes
+        </p>
+        <p class="billet-commentaires-count">
+            Nombre Commentaires
+        </p>
+    </div>
+    <?php foreach ($billets as $billet): ?>
+        <ul class="billets-ul">
+            <a href="<?php echo $app->urlFor('billet', array('id' => $billet['id'])) ?>">
+                <li class="utilisateur-photo">
+                    <i class="medium material-icons">perm_identity</i>
+                </li>
+                <li class="billet-titre">
+                    <?php echo $billet['titre'] ?>
+                </li>
+                <li class="billet-votes-count">
+                    <?php echo $billet['votes_count'] ?>
+                </li>
+                <li class="billet-commentaires-count">
+                    <?php echo $billet['commentaires_count'] ?>
+                </li>
+            </a>
+        </ul>
+    <?php endforeach; ?>
 </div>
 <div class="pager col-xs-12">
     Page :
