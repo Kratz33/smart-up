@@ -1,34 +1,15 @@
-<div class="col-xs-6 col-xs-offset-3 mt40">
-    <div class="col-xs-12 message t-center">
-        <?php if(isset($message)): ?>
-            <?php echo $message ?>
-        <?php endif; ?>
+<?php foreach ($categoriesWithBillets as $category): ?>
+    <div class="row">
+        <div class="col s6">
+          <div class="card blue-grey darken-1">
+            <div class="card-content white-text">
+              <span class="card-title"><?php echo $category['label']; ?></span>
+              <p><?php echo $category['billets_count'] ?> billets</p>
+            </div>
+            <div class="card-action">
+              <a href="<?php echo $app->urlFor('billets_by_category', array('id' => $category['id'], 'page' => 1)) ?>">Voir</a>
+            </div>
+          </div>
+        </div>
     </div>
-    <table class="categories-table col-xs-12 mt40">
-        <tr>
-            <th>
-                Label des catégories
-            </th>
-            <th>
-                Modifier/Supprimer
-            </th>
-        </tr>
-        <?php foreach ($categories as $category): ?>
-            <tr>
-                <td>
-                    <?php echo $category['label']; ?>
-                </td>
-                <td>
-                    <a class="edit-category-<?php echo $category['id'] ?>"
-                       onclick="$('#modal-edit-category-<?php echo $category['id'] ?>').modal()"> Modifier </a>
-                    /
-                    <a class="delete-category-<?php echo $category['id'] ?>"
-                       onclick="$('#modal-delete-category-<?php echo $category['id'] ?>').modal()"> Supprimer </a>
-                </td>
-            </tr>
-        <?php endforeach; ?>
-    </table>
-</div>
-<div class="col-xs-12">
-    <button id="add-category" class="add-category"> Ajouter une catégorie </button>
-</div>
+<?php endforeach; ?>

@@ -36,6 +36,8 @@ if(isset($_SESSION['userProfile']) && isset($_SESSION['userPseudo']) && isset($_
         $_SESSION['userId'],
         '7 days'
     );
+    $_SESSION['userPremium'] = 1;
+    $_SESSION['userType'] = 2;
 }
 
 //
