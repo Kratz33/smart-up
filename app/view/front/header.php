@@ -5,14 +5,14 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="scale=1.0" />
 
-		<link rel="stylesheet" href="/smart-me-up/css/bootstrap/bootstrap.min.css" media="screen" type="text/css" rel="stylesheet"/>
+		<link rel="stylesheet" href="/smart-up/css/bootstrap/bootstrap.min.css" media="screen" type="text/css" rel="stylesheet"/>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-		<link rel="stylesheet" href="/smart-me-up/css/style.css" media="screen" type="text/css" rel="stylesheet"/>
+		<link rel="stylesheet" href="/smart-up/css/style.css" media="screen" type="text/css" rel="stylesheet"/>
 
 		<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-		<script src="/smart-me-up/js/bootstrap/bootstrap.min.js"></script>
-		<script src="/smart-me-up/js/blogslim.js"></script>
+		<script src="/smart-up/js/bootstrap/bootstrap.min.js"></script>
+		<script src="/smart-up/js/blogslim.js"></script>
 
 	</head>
     <body class="container">

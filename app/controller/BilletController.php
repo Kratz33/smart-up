@@ -75,7 +75,7 @@ class BilletController extends Controller {
             $comment['vote_neg'] = $arrayVotes['vote_neg'];
 
             // On vérifie si l'utilisateur courant a voté ou non pour le commentaire courant
-            if ($_SESSION['userId']) {
+            if (isset($_SESSION['userId'])) {
                 $vote = \app\models\Vote::where("commentaire_id", '=', $comment['id'])
                     ->where("utilisateur_id", '=', $_SESSION['userId'])
                     ->first();
