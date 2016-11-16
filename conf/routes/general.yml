@@ -135,4 +135,4 @@ vote:
     url: /vote/:comment_id/:value/:user_id
     controller: CommentController
     action:     vote
-    method:     get
+    method:     post

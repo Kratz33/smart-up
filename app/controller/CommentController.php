@@ -52,6 +52,7 @@ class CommentController extends Controller {
                     $vote->delete();
                 }
             }
+            return "success";
         }
         catch (\Exception $e) {
             var_dump($e);
