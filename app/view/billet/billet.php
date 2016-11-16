@@ -72,18 +72,18 @@
             </div>
         <?php endif; ?>
     <?php endif; ?>
-    <!--<?php //if(isset($_SESSION['userProfile']) &&  $_SESSION['userProfile'] == "membre"): ?>
-        <div class="col-xs-12 t-center">
-            <h3>Ajouter un commentaire</h3>
-            <form method="post" action="<?php //echo $app->urlFor('add_comment', array('id' => $billet['id'])) ?>">
-                <div class="col-xs-12 t-center">
-                    <label for="comment-text-add">Text du commentaire :</label></br>
-                    <textarea id="comment-text-add" name="comment-text-add" required="required" placeholder="Message du commentaire"></textarea>
-                </div>
-                <div class="col-xs-12 t-center">
-                    <input type="submit" value="poster mon commentaire"/>
-                </div>
-            </form>
-        </div>
-    <?php //endif; ?>!-->
 </div>
+<script type="application/javascript">
+    $.ajax({
+        type: 'GET',
+        url: 'vote',
+        dataType: 'json',
+        success: function(json){
+            console.log( json );
+        },
+    });
+
+    Répondre avec citation Répondre avec citation   0  0
+
+
+</script>
