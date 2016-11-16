@@ -19,6 +19,7 @@ class UserController extends Controller
                 'firstname' => $app->request->params('inscription-firstname'),
                 'email'     => $app->request->params('inscription-mail'),
                 'password'  => md5($app->request->params('inscription-password')),
+				
             );
 
             $user = new \app\models\Utilisateur();
@@ -44,20 +45,15 @@ class UserController extends Controller
             ->first();
         // Si la base de données match avec le pseudo et le mot de passe et qu'il n'est pas radié
         if(isset($user)) {
-            if ($user['radie'] == 0) {
-                // On créé un cookie Slim pour y inclure le profil, le pseudo et l'id (utilisés un peu partout)
-                $app->add(new \Slim\Middleware\SessionCookie());
-                $_SESSION["userProfile"] = $user['profil'];
-                $_SESSION["userPseudo"] = $user['pseudo'];
-                $_SESSION['userId'] = $user['id'];
-                $_SESSION['userPremium'] = $user['premium'];
-                $_SESSION['userType'] = $user['type_id'];
+            // On créé un cookie Slim pour y inclure le profil, le pseudo et l'id (utilisés un peu partout)
+            $app->add(new \Slim\Middleware\SessionCookie());
+            $_SESSION["userProfile"] = $user['profil'];
+            $_SESSION["userPseudo"] = $user['pseudo'];
+            $_SESSION['userId'] = $user['id'];
+            $_SESSION['userPremium'] = $user['premium'];
+            $_SESSION['userType'] = $user['type_id'];
 
-                $message = "Bienvenue, vous êtes connecté sous le pseudo " . $user['pseudo'];
-            } // Sinon
-            else {
-                $message = "Vous avez été radié(e) du site, contactez l'administrateur du site pour de plus amples informations";
-            }
+            $message = "Bienvenue, vous êtes connecté sous le pseudo " . $user['pseudo'];
         }
         else{
             $message = "Le pseudo et/ou le mot de passe n'est/ne sont pas bon(s), merci de retenter de vous connecter";
