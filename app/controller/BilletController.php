@@ -145,13 +145,25 @@ class BilletController extends Controller {
 
     public function addComment($id) {
 
-        $app      = new \Slim\Slim();
-        $comment  = new Comment();
-        $comment->message           = $app->request->params('comment-text-add');
-        $comment->id_utilisateur    = $_SESSION['userId'];
-        $comment->id_billet         = $id;
-        $comment->save();
-        $this->getBillet($id);
+        try {
+            $app = new \Slim\Slim();
+            $comment = new Comment();
+            $comment->message = $app->request->params('comment-text-add');
+            $comment->id_utilisateur = $_SESSION['userId'];
+            $comment->id_billet = $id;
+            $comment->save();
+            $this->getBillet($id);
+
+            $userId = $_SESSION['userId'];
+            $userPseudo = $_SESSION['userPseudo'];
+            //Création de la notification pour le créateur du post
+
+            $notification = new \app\models\Notification();
+            $notification->addNotification($userId, "Votre post a reçu une réponse de la part de" . $userPseudo, $id);
+        }
+        catch (Exception $e) {
+            var_dump($e);
+        }
 
     }
     
