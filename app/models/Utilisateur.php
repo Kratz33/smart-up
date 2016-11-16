@@ -27,10 +27,11 @@ class Utilisateur extends \Illuminate\Database\Eloquent\Model{
 
     public function editProfile($params) {
         try {
-            $this->nom      = $params['edit-profile-lastname'];
-            $this->prenom   = $params['edit-profile-firstname'];
-            $this->mail     = $params['edit-profile-mail'];
-            $this->mdp      = $params['edit-profile-password'];
+            $this->nom          = $params['edit-profile-lastname'];
+            $this->prenom       = $params['edit-profile-firstname'];
+            $this->mail         = $params['edit-profile-mail'];
+            $this->mdp          = $params['edit-profile-password'];
+            $this->description  = $params['edit-profile-description'];
             $this->save();
             return "Modification bien effectuée !";
         }

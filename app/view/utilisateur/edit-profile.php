@@ -28,6 +28,31 @@
                        value="<?php echo $user['mdp'] ?>"/>
             </div>
             <div class="col-xs-12 mt20">
+                <label for="edit-profile-description">Description :</label></br>
+                <textarea id="edit-profile-description" name="edit-profile-description"
+                        cols="40" rows="5"><?php echo $user['description'] ?></textarea>
+            </div>
+            <div class="col-xs-12 mt20">
+                <label for="edit-profile-profil">Vous êtes un </label>
+                <?php
+                    if ($user['profil'] == 1) {
+                        echo "futur entrepreneur";
+                    } else {
+                        echo "professionnel";
+                    }
+                ?>
+            </div>
+            <div class="col-xs-12 mt20">
+                <label for="edit-profile-premium">Vous avez un compte </label>
+                <?php
+                    if ($user['premium'] == 0) {
+                        echo "gratuit";
+                    } else {
+                        echo "premium";
+                    }
+                ?>
+            </div>
+            <div class="col-xs-12 mt20">
                 <input type="submit" id="submit-edit-profile" class="submit-edit-profile" value="Modifier"/>
             </div>
         </form>
