@@ -82,10 +82,10 @@
             dataType: "json",
             data: sendData,
             success: function() {
-                console.log($url)
+                console.log("success !")
             },
             error: function() {
-                console.log(error);
+                console.log("Error, please contact the website admin who'll never answer");
             }
         });
     }
