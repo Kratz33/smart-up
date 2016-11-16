@@ -50,7 +50,7 @@ class UserController extends Controller
                 $_SESSION["userProfile"] = $user['profil'];
                 $_SESSION["userPseudo"] = $user['pseudo'];
                 $_SESSION['userId'] = $user['id'];
-                $_SESSION['userPrenium'] = $user['prenium'];
+                $_SESSION['userPremium'] = $user['premium'];
                 $_SESSION['userType'] = $user['type_id'];
 
                 $message = "Bienvenue, vous êtes connecté sous le pseudo " . $user['pseudo'];
@@ -76,7 +76,7 @@ class UserController extends Controller
         $_SESSION["userPseudo"]     = null;
         $_SESSION["userProfile"]    = null;
         $_SESSION["userId"]         = null;
-        $_SESSION['userPrenium']    = null;
+        $_SESSION['userPremium']    = null;
         $_SESSION['userType']       = null;
 
         $app = new \Slim\Slim();
