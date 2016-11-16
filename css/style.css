@@ -12,3 +12,34 @@
 .icon-block .material-icons {
 	font-size: inherit;
 }
+body.container {
+    background: url("../img/bg.jpg");
+    z-index: 0;
+    padding: 0;
+}
+.header {
+    width: 100%;
+}
+.header .title {
+
+}
+.homepage {
+    text-align: center;
+    font-size: 36px;
+    vertical-align: middle;
+    color: white;
+    font-family: cursive;
+    line-height: 400px;
+}
+.footer {
+    position:absolute;
+    bottom:0;
+    width:100%;
+}
+.footer nav {
+    padding: 0 10px;
+}
+/* OVERRIDE */
+.light-blue.lighten-1 {
+    background-color: #6299af !important;
+}

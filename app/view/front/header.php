@@ -19,11 +19,12 @@
 
 	</head>
     <body class="container">
-		<div class="header col-xs-12">
+		<div class="header">
 			<section>
 				<nav class="light-blue lighten-1" role="navigation">
 					<div class="nav-wrapper container">
                         <a href="<?php echo $app->urlFor('root');?>"><i class="fa fa-home fa-3x"></i></a>
+                        <span class="title">SMART UP</span>
                         <?php if(!isset($_SESSION["userPseudo"])): ?>
                             <ul class="right hide-on-med-and-down">
                                 <li><a class="header-inscription" id="header-inscription"><i class="fa fa-user-plus fa-2x"></i>S'inscrire</a></li>

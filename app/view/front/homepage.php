@@ -1,11 +1,17 @@
 <div class="col-xs-12 t-center">
-    
-    <h1 class="col-xs-12"> Page d'accueil </h1>
 
-    <div class="col-xs-12 t-center mt40">
-        <h2> Liste des catégories</h2>
+    <div class="homepage">
+        <div class="text">
+            Ayez les bons réflexes pour bien démarrer votre entreprise.
+        </div>
     </div>
-    <div class="col-xs-12 mt40">
+    
+    <!--<h1 class="col-xs-12"> Page d'accueil </h1>-->
+
+    <!--<div class="col-xs-12 t-center mt40">
+        <h2> Liste des catégories</h2>
+    </div>-->
+    <!--<div class="col-xs-12 mt40">
         <table class="billets-by-categorie-table col-xs-12">
             <tr>
                 <th class="t-center">
@@ -32,14 +38,14 @@
                 </tr>
             <?php endforeach; ?>
         </table>
-    </div>
-    <div class="col-xs-12 mt40">
+    </div>-->
+    <!--<div class="col-xs-12 mt40">
         <h2> Répartition des posts par catégorie </h2>
         <div id="myPieChart"/>
-    </div>
+    </div>-->
 </div>
 
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<!--<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
     google.charts.load('current', {packages: ['corechart']});
     google.charts.setOnLoadCallback(drawChart);
@@ -57,5 +63,5 @@
         chart.draw(data, null);
     }
 
-</script>
+</script>-->
 
