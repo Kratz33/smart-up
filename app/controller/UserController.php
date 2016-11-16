@@ -19,6 +19,7 @@ class UserController extends Controller
                 'firstname' => $app->request->params('inscription-firstname'),
                 'email'     => $app->request->params('inscription-mail'),
                 'password'  => md5($app->request->params('inscription-password')),
+				
             );
 
             $user = new \app\models\Utilisateur();
