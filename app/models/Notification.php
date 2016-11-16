@@ -14,7 +14,6 @@ class Notification extends \Illuminate\Database\Eloquent\Model{
             $this->utilisateur_id = $userId;
             $this->posts_id = $postId;
             $this->lu = 0;
-            $this->date = date("Y-m-D h:I:s");
             $this->text = $text;
             $this->save();
         }
