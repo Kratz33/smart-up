@@ -79,7 +79,7 @@
                 <form method="post" action="<?php echo $app->urlFor('add_comment', array('id' => $billet['id'])) ?>">
                     <div class="row">
                         <div class="input-field col s12">
-                            <textarea id="comment-text-add" class="materialize-textarea" name="comment-text-add"></textarea>
+                            <textarea id="comment-text-add" class="materialize-textarea" name="comment-text-add" required></textarea>
                             <label for="comment-text-add">Ajouter un commentaire</label>
                         </div>
                         <button class="btn waves-effect waves-light col s12" type="submit" name="action">Commenter
