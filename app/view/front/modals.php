@@ -47,14 +47,19 @@
                                     <input type="password" id="inscription-password-confirm"
                                            placeholder="Mon mot de passe" required="required" pattern=".{5,15}" title="5 à 15 caractères"/>
                                 </div>
-								<div>
-									<label><input type="radio" id="inscription-type" name="inscription-type" placeholder="type" value="0" />Entrepreneur</label>
-									<label><input type="radio" id="inscription-type" name="inscription-type" placeholder="type" value="1" />Professionnel</label>
-								
+								<div>      
+									
+									<input type="radio" id="inscription-type" class="with-gap" name="inscription-type" placeholder="type" value="0" />
+									<label for="inscription-type">Entrepreneur</label>
+						
+									<input type="radio" class="with-gap" id="inscription-type" name="inscription-type" placeholder="type" value="1" />
+									<label for="inscription-type">Professionnel</label></br>
                                 </div>
 								<div>
-                                    <label for="inscription-premium"><input type="radio" name="inscription-premium" id="inscription-premium" placeholder="premium" value="1"/>Premium</label>									
-									<label for="inscription-premium"><input type="radio" name="inscription-premium" id="inscription-premium" placeholder="premium" value="0"/>Gratuit</label>															
+                                    <input type="radio" class="filled-in" name="inscription-premium" id="inscription-premium" placeholder="premium" value="1"/>
+									<label for="inscription-premium">Premium</label>									
+									<input type="radio" class="filled-in" name="inscription-premium" id="inscription-premium" placeholder="premium" value="0"/>
+									<label for="inscription-premium">Gratuit</label>															
                                 </div>
                             </p>
                             <div class="modal-footer">
