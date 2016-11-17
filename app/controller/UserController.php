@@ -58,43 +58,13 @@ class UserController extends Controller
             $_SESSION['userNom'] = $user['nom'];
 
             $message = "Bienvenue, vous êtes connecté sous le pseudo " . $user['pseudo'];
+
+            Controller::$app->redirectTo('categories');
         }
         else{
             $message = "Le pseudo et/ou le mot de passe n'est/ne sont pas bon(s), merci de retenter de vous connecter";
         }
 
-       for ($i = 0; $i < 20; $i++) {
-            if(isset($billets[$i])) {
-                $category = Categorie::where('id', '=', $billets[$i]['id_categorie'])->first();
-                $categoryLabel = $category->label;
-                $billets[$i]['category_label'] = $categoryLabel;
-            }
-       }
-
-        $categories = Categorie::all();
-        // $billetsByCategory pour Google Charts
-        $billetsByCategory = array();
-        // $categoriesWithBillets pour charger le tableau dans la homepage des billets par catégorie
-        $categoriesWithBillets = array();
-        foreach($categories as $category) {
-
-            $billetsCount = count(Billet::where('id_categorie', '=', $category['id'])->get());
-            $billetsByCategory[] = array($category['label'], $billetsCount);
-
-            $categoriesWithBillets[$i]['id']            = $category['id'];
-            $categoriesWithBillets[$i]['label']         = $category['label'];
-            $categoriesWithBillets[$i]['billets_count'] = $billetsCount;
-
-
-            $i++;
-        }
-
-        AnonymousController::header();
-
-        Controller::$app->render('categorie/categories.php', array('categoriesWithBillets' => $categoriesWithBillets));
-
-        AnonymousController::modals();
-        AnonymousController::footer();
     }
 
     public function logout(){
@@ -106,43 +76,8 @@ class UserController extends Controller
         $_SESSION['userPremium']    = null;
         $_SESSION['userType']       = null;
 
-        $app = new \Slim\Slim();
-        $app->deleteCookie('user');
-
-
-        // take pour prendre 20 élément, skip concerne l'offset
-        $billets = Billet::orderBy('date', 'DESC')->take(20)->skip(0)->get();
-
-        for ($i = 0; $i < 20; $i++) {
-            if(isset($billets[$i])) {
-                $category = Categorie::where('id', '=', $billets[$i]['id_categorie'])->first();
-                $categoryLabel = $category->label;
-                $billets[$i]['category_label'] = $categoryLabel;
-            }
-        }
-
-        $categories = Categorie::all();
-        // $billetsByCategory pour Google Charts
-        $billetsByCategory = array();
-        // $categoriesWithBillets pour charger le tableau dans la homepage des billets par catégorie
-        $categoriesWithBillets = array();
-        foreach($categories as $category) {
-
-            $billetsCount = count(Billet::where('id_categorie', '=', $category['id'])->get());
-            $billetsByCategory[] = array($category['label'], $billetsCount);
-
-            $categoriesWithBillets[$i]['id'] 			= $category['id'];
-            $categoriesWithBillets[$i]['label'] 		= $category['label'];
-            $categoriesWithBillets[$i]['billets_count'] = $billetsCount;
-
-
-            $i++;
-        }
-
-        AnonymousController::header();
-        Controller::$app->render('front/homepage.php', array('billets' => $billets, 'categoriesWithBillets' => $categoriesWithBillets));
-        AnonymousController::modals();
-        AnonymousController::footer();
+        Controller::$app->deleteCookie('user');
+        Controller::$app->redirectTo('root');
 
     }
 
