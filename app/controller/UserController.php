@@ -26,14 +26,17 @@ class UserController extends Controller
 
             $user = new \app\models\Utilisateur();
             $user->addUser($valueArray);
+
+            $_SESSION['message'] = "Inscription réussi, vous pouvez vous connecter !";
+            Controller::$app->redirectTo('root');
         }
         else {
-            echo "non non non";
-        }
-        Controller::$app->render('utilisateur/inscription.php');
+            Controller::$app->render('utilisateur/inscription.php');
 
-        AnonymousController::modals();
-        AnonymousController::footer();
+            AnonymousController::modals();
+            AnonymousController::footer();
+        }
+        
     }
 
     public function connexion()
@@ -62,7 +65,8 @@ class UserController extends Controller
             Controller::$app->redirectTo('categories');
         }
         else{
-            $message = "Le pseudo et/ou le mot de passe n'est/ne sont pas bon(s), merci de retenter de vous connecter";
+            $_SESSION['message'] = "Pseudo et/ou Mot de passe incorrect";
+            Controller::$app->redirectTo('root');
         }
 
     }
