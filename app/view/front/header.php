@@ -44,7 +44,7 @@
                                 </ul>
                             <?php else: ?>
                                 <ul class="right hide-on-med-and-down">
-                                    <li><a class="header-get-billets" href="<?php echo $app->urlFor('billets', array('id' => 1)) ?>"><i class="fa fa-file-text-o fa-2x"></i></a></li>
+                                    <li><a class="header-get-billets" href="<?php echo $app->urlFor('categories') ?>"><i class="fa fa-file-text-o fa-2x"></i></a></li>
                                     <li><a class="header-profile-manage" href="<?php echo $app->urlFor('profile') ?>"><i class="fa fa-user-circle-o fa-2x"></i></a></li>
                                 </ul>
                             <?php endif ?>

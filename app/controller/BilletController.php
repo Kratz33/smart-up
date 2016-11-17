@@ -12,7 +12,7 @@ class BilletController extends Controller {
         AnonymousController::header();
 
         // take pour prendre 20 élément, skip concerne l'offset
-        $billets = Billet::orderBy('date', 'DESC')->take(20)->skip(20 * ($page - 1))->get();
+        $billets = Billet::orderBy('date', 'DESC')->take(8)->skip(8 * ($page - 1))->get();
 
         foreach($billets as $billet) {
             // Récupération de la catégorie en rapport avec le billet
@@ -28,7 +28,7 @@ class BilletController extends Controller {
         // Récupréation du nombre de billets
         $countBillets = count(Billet::all());
         // Division par 20 arrondie à l'unité supérieure pour mettre en place le pager
-        $nbPages = ceil($countBillets / 20);
+        $nbPages = ceil($countBillets / 8);
 
 
         Controller::$app->render('billet/billets.php', array(
