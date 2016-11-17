@@ -24,7 +24,8 @@
                     <li id="comment-<?php echo $comment['id'] ?>" class="collection-item">
                         <div class="commentaire-utilisateur">
                             <i class="medium material-icons">perm_identity</i>
-                            <span class="title"><?php echo $comment['userPseudo'] ?></span>
+                            <span class="utilisateur-pseudo"><?php echo $comment['userPseudo'] ?> <br>
+                            note <sapn class="utilisateur-note"><?php echo $comment['userNote'] ?></span></span>
                         </div>
                         <div class="commentaire-message">
                             <p><?php echo $comment['message'] ?></p>

@@ -106,6 +106,14 @@ class BilletController extends Controller {
                     $comment['vote_color'] = "";
                 }
             }
+
+            $comment['userPseudo']=$user['pseudo'];
+            $comment['userNote']=0;
+            $voteUtilisateurs = \app\models\Vote::where("commentaire_id", '=', $comment['id'])
+                    ->where("utilisateur_id", '=', $user['id'])->get();
+            foreach ($voteUtilisateurs as $key => $voteUtilisateur) {
+                $comment['userNote'] += $voteUtilisateur['valeur'];
+            }
         }
         // On renvoie le tableau des commentaires avec l'ajout du pseudo pour chaque commentaire
         return $comments;
