@@ -125,9 +125,9 @@ class CategorieController extends Controller {
 
     public function getBilletsByCategory($id, $page) {
         // take pour prendre 20 élément, skip concerne l'offset
-        $billets        = Billet::where('id_categorie', '=', $id)->orderBy('date', 'DESC')->take(20)->skip(20 * ($page - 1))->get();
+        $billets        = Billet::where('id_categorie', '=', $id)->orderBy('date', 'DESC')->take(8)->skip(8 * ($page - 1))->get();
         $countBillets   = count(Billet::where('id_categorie', '=', $id)->get());
-        $nbPages        = ceil($countBillets / 20);
+        $nbPages        = ceil($countBillets / 8);
 
         // Ul Billets
         $billetsWithCommentVote = array();

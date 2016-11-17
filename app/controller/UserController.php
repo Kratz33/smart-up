@@ -39,8 +39,6 @@ class UserController extends Controller
     public function connexion()
     {
 
-        AnonymousController::header();
-
         $app = new \Slim\Slim();
 
         // Récupération de l'utilisateur en fonction du pseudo et du mot de passe renseignées
@@ -71,7 +69,7 @@ class UserController extends Controller
                 $categoryLabel = $category->label;
                 $billets[$i]['category_label'] = $categoryLabel;
             }
-        }
+       }
 
         $categories = Categorie::all();
         // $billetsByCategory pour Google Charts
@@ -90,6 +88,8 @@ class UserController extends Controller
 
             $i++;
         }
+
+        AnonymousController::header();
 
         Controller::$app->render('categorie/categories.php', array('categoriesWithBillets' => $categoriesWithBillets));
 
