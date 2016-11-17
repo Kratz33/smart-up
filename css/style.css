@@ -196,6 +196,11 @@ div.billet-footer #billet-date{
     font-style: italic;
 }
 
+/***************** ADD BILLET *******************/
+.category-select{
+    margin-top: 40px;
+}
+
 /***************** FOOTER *******************/
 
 .footer {

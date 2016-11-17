@@ -84,7 +84,7 @@ class AnonymousController extends Controller {
 		$app->redirectTo('root');
     }
 
-    public function leftbarre($categories){
+    public static function leftbarre($categories){
     	Controller::$app->render('front/leftbarre.php', array('categories' => $categories));
     }
 }
