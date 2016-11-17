@@ -77,14 +77,13 @@
         <?php if((isset($_SESSION['userType']) &&  $_SESSION['userType'] == 2) || $_SESSION['userId'] == $billet['utilisateur_id']): ?>
             <div class="col-xs-10 col-xs-offset-1">
                 <form method="post" action="<?php echo $app->urlFor('add_comment', array('id' => $billet['id'])) ?>">
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <textarea id="comment-text-add" class="materialize-textarea" name="comment-text-add" required></textarea>
-                            <label for="comment-text-add">Ajouter un commentaire</label>
-                        </div>
-                        <button class="btn waves-effect waves-light col s12" type="submit" name="action">Commenter
-                        </button>
+                    <div class="input-field col-xs-12">
+                        <textarea id="comment-text-add" class="materialize-textarea" name="comment-text-add" required></textarea>
+                        <label for="comment-text-add">Ajouter un commentaire</label>
                     </div>
+                    <button class="btn waves-effect waves-light col-xs-12" type="submit" name="action">Commenter
+                        <i class="material-icons right">send</i>
+                    </button>
                 </form>
             </div>
         <?php endif; ?>
