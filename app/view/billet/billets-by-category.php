@@ -1,7 +1,6 @@
 <div class="col-xs-9 mt40 t-center">
     <div>
         <h3><?php echo $category['label'] ?></h3>
-        <a href="/smart-up/billet/add" class="waves-effect waves-light btn-large"><i class="material-icons right">add</i>Ajouter un billet</a>
     </div>
     <div class="entete">
         <p class="billet-votes-count">
@@ -35,4 +34,9 @@
     <?php for($i=1; $i <= $nbPages; $i++): ?>
         <a href="<?php echo $app->urlFor('billets_by_category', array('id' => $category['id'], 'page' => $i)); ?>" class=""> <?php echo $i ?> </a>
     <?php endfor; ?>
+</div>
+<div class="fixed-action-btn">
+    <a href="<?php echo $app->urlFor('add_billet_get') ?>" class="btn-floating btn-large bg-blue">
+        <i class="material-icons">add</i>
+    </a>
 </div>

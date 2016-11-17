@@ -25,20 +25,20 @@
 			<section>
 				<nav class="light-blue lighten-1" role="navigation">
 					<div class="nav-wrapper container">
-                        <a href="<?php echo $app->urlFor('root');?>"><i class="fa fa-home fa-3x"></i></a>
-                        <span class="title">SMART UP</span>
+						<div class="title">SMART UP</div>
+                        <a href="<?php echo $app->urlFor('root');?>"><i class="home fa fa-home fa-3x"></i></a>
                         <?php if(!isset($_SESSION["userPseudo"])): ?>
-                            <ul class="right hide-on-med-and-down">
+                            <ul class="right hide-on-med-and-down icons-header">
                                 <li><a class="header-inscription" id="header-inscription"><i class="fa fa-user-plus fa-2x"></i>S'inscrire</a></li>
                                 <li><a class="header-connexion" id="header-connexion"><i class="fa fa-user fa-2x"></i>Se connecter</a></li>
                             </ul>
                         <?php else: ?>
-                            <ul class="right hide-on-med-and-down">
+                            <ul class="right hide-on-med-and-down icons-header">
                                 <li class="header-logged-in">Bienvenue <?php echo $_SESSION["userPrenom"]; ?></li>
                                 <li><a href="<?php echo $app->urlFor('logout');?>" class="header-logout" id="header-logout"><i class="fa fa-power-off fa-2x"></i></a></li>
                             </ul>
                             <?php if(isset($_SESSION["userProfile"])): ?>
-                                <ul class="right hide-on-med-and-down">
+                                <ul class="right hide-on-med-and-down icons-header">
 									<li id="notifs-li" class="header-get-notifs">
 										<?php if(count($_SESSION['notifs']['not_read']) > 0): ?>
 											<?php echo count($_SESSION['notifs']['not_read']) ?> <i class="fa fa-bell fa-2x t-red"></i>

@@ -20,9 +20,6 @@ body.container {
 .header {
     width: 100%;
 }
-.header .title {
-
-}
 .homepage {
     text-align: center;
     font-size: 36px;
@@ -63,9 +60,19 @@ html{
 .t-red {
     color: red;
 }
-
+.bg-blue {
+    background-color: #6299af;
+}
 .t-green {
     color: green;
+}
+.fixed-action-btn {
+    position: fixed;
+    right: 23px;
+    bottom: 23px;
+    padding-top: 15px;
+    margin-bottom: 0;
+    z-index: 998;
 }
 
 /***************** HEADER *****************/
@@ -103,6 +110,25 @@ nav ul li#notifs-li:hover ul li, nav ul li#notifs-li ul li:hover {
 
 nav ul li ul li {
     float: none;
+}
+.header .container {
+    display: inline-block;
+}
+.header .title {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    font-size: 28px;
+    font-family: initial;
+}
+.home {
+    position: absolute;
+    z-index: 1;
+}
+.header .icons-header {
+    position: relative;
+    z-index: 1;
 }
 
 /***************** CATEGORIES *****************/
@@ -230,6 +256,9 @@ div.billet-footer #billet-date{
 .category-select{
     margin-top: 40px;
 }
+.add-billet {
+    min-height: 500px;
+}
 
 /***************** FOOTER *******************/
 
@@ -288,11 +317,6 @@ p#vote a {
 }
 .modif-profil{
     min-height: 500px;
-}
-.modif-profil button {
-    background: transparent;
-    border: none;
-    color: mediumseagreen;
 }
 .modif-profil .submit {
     text-align: right;
