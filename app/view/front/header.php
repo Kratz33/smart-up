@@ -73,6 +73,18 @@
 				}
 			});
 
+			if (window.location.pathname == '/smart-up/') {
+				$('body').css({
+                    'background-image': 'url(/img/bg.jpg) no-repeat',
+                    'background-color': 'none'
+                });
+			} else {
+                $('body').css({
+                    'background-image': 'none',
+                    'background-color': '#eee'
+                });
+            }
+
 
 		</script>
 

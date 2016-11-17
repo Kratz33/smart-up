@@ -43,6 +43,7 @@ body.container {
 /***************** In All Pages ********************/
 .container {
     max-width: none;
+    position: relative;
 }
 .t-red {
     color: red;
@@ -173,7 +174,7 @@ div.billet-footer #billet-date{
 /***************** FOOTER *******************/
 
 .footer {
-    position:fixed;
+    position:absolute;
     bottom:0;
     width:100%;
 }
