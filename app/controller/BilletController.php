@@ -160,8 +160,6 @@ class BilletController extends Controller {
             $categories = Categorie::all();
         
             Controller::$app->render('billet/add_billet.php', array('categories'=>$categories));
-
-            AnonymousController::modals();
             AnonymousController::footer(); 
         }   
     }
