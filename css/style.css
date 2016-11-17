@@ -41,6 +41,9 @@ body.container {
 */
 
 /***************** In All Pages ********************/
+.container {
+    max-width: none;
+}
 .t-red {
     color: red;
 }
