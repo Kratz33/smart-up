@@ -48,16 +48,16 @@
                                            placeholder="Mon mot de passe" required="required" pattern=".{5,15}" title="5 à 15 caractères"/>
                                 </div>
 								<div>
-									<input type="radio" id="inscription-type" class="with-gap"  name="inscription-type" placeholder="type" required="required" value="0" />
-									<label for="inscription-type">Entrepreneur</label>
-									<input type="radio"  id="inscription-type"class="with-gap"  name="inscription-type" placeholder="type" required="required" value="1" />
-									<label for="inscription-type">Professionnel</label></br>
+									<input type="radio" id="inscription-type-1" class="with-gap"  name="inscription-type" placeholder="type" required="required" value="1" />
+									<label for="inscription-type-1">Entrepreneur</label>
+									<input type="radio"  id="inscription-type-2"class="with-gap"  name="inscription-type" placeholder="type" required="required" value="2" />
+									<label for="inscription-type-2">Professionnel</label></br>
                                 </div>
 								<div>
-                                    <input type="radio" class="with-gap"  name="inscription-premium" id="inscription-premium" placeholder="premium" required="required" value="1"/>
-									<label for="inscription-premium">Premium</label>									
-									<input type="radio" class="with-gap"  name="inscription-premium" id="inscription-premium" placeholder="premium" required="required" value="0"/>
-									<label for="inscription-premium">Gratuit</label>																						
+                                    <input type="radio" class="with-gap"  name="inscription-premium" id="inscription-premium-1" placeholder="premium" required="required" value="1"/>
+									<label for="inscription-premium-1">Premium</label>									
+									<input type="radio" class="with-gap"  name="inscription-premium" id="inscription-premium-2" placeholder="premium" required="required" value="0"/>
+									<label for="inscription-premium-2">Gratuit</label>																						
                                 </div>
                             </p>
                             <div class="modal-footer">
