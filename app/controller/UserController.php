@@ -12,14 +12,13 @@ class UserController extends Controller
 
         $app = new \Slim\Slim();
         if(!is_null($app->request->params())) {
-
             $valueArray = array(
                 'pseudo'    => $app->request->params('inscription-pseudo'),
                 'lastname'  => $app->request->params('inscription-lastname'),
                 'firstname' => $app->request->params('inscription-firstname'),
                 'email'     => $app->request->params('inscription-mail'),
                 'password'  => md5($app->request->params('inscription-password')),
-				'type'   => $app->request->params('inscription-type'),
+				'type_id'   => $app->request->params('inscription-type'),
 				'premium'      => $app->request->params('inscription-premium'),
 				
             );

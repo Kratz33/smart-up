@@ -18,6 +18,7 @@ class Utilisateur extends \Illuminate\Database\Eloquent\Model{
             $this->mail     = $valueArray['email'];
             $this->mdp      = $valueArray['password'];
 			$this->premium  = $valueArray['premium'];
+            $this->type_id  = $valueArray['type_id'];
 			//$this->label      = $valueArray['type'];
             //$this->profil = $valueArray['profile'];
             $this->save();
