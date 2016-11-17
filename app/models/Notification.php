@@ -23,7 +23,7 @@ class Notification extends \Illuminate\Database\Eloquent\Model{
 
     }
 
-    public function getNotifs($userId) {
+    public static function getNotifs($userId) {
 
         $notifs['not_read'] = \app\models\Notification::where('utilisateur_id', '=', $userId)->where('lu', '=', 0);
         $notifs['all'] = \app\models\Notification::where('utilisateur_id', '=', $userId)->get()->toArray();
