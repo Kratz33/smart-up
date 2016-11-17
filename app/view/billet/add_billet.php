@@ -23,10 +23,14 @@
                 <input type="text" class="form-control" name="title" id="title" placeholder="Titre">
             </div>
         </div>
+
+        
+
         <div class="form-group">
-            <label for="description" class="col-sm-2 control-label">Description</label>
-            <div class="col-sm-10">
-                <textarea class="form-control" rows="5" id="description"  name="description" placeholder="Mettez ici votre question"></textarea>
+            <div class="input-field col-sm-9">
+                <i class="material-icons prefix">mode_edit</i>
+                <textarea id="description"  name="description" class="materialize-textarea"></textarea>
+                <label for="description">Description</label>
             </div>
         </div>
         <div class="form-group">
