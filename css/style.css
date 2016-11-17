@@ -49,6 +49,12 @@ html{
     position: relative;
     height: 100%;
 }
+.block {
+    display: block;
+    min-height: 120px;
+    margin-bottom: 20px;
+    padding: 20px;
+}
 .t-red {
     color: red;
 }
@@ -222,4 +228,36 @@ div.billet-footer #billet-date{
 
 p#vote a {
     color: #424242;
+}
+
+/***************** Profil Page ******************/
+
+.profil {
+    background-color: white;
+    min-height: 500px;
+    margin-top: 10px;
+    padding: 10px;
+}
+.profil i {
+    color: #999;
+}
+.profile-lastname,
+.profile-mail,
+.profile-description {
+    margin: 0;
+}
+.profil-icon {
+    text-align: center;
+}
+
+
+/***************** Tailles **********************/
+.size-xxl {
+    font-size: 80px;
+}
+.size-l {
+    font-size: 28px;
+}
+.size-s {
+    font-size: 14px;
 }
