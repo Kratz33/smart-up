@@ -1,5 +1,5 @@
 <div class="col-xs-12 t-center">
-    <div class="col-xs-10 col-xs-offset-1 profil">
+    <div class="col-xs-10 col-xs-offset-1 profil container-interne">
         <?php if(isset($message)): ?>
             <div class="col-xs-12 t-red t-center">
                 <?php echo $message ?>

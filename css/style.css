@@ -49,6 +49,12 @@ html{
     position: relative;
     height: 100%;
 }
+.container-interne {
+    background-color: white;
+    min-height: 500px;
+    margin-top: 10px;
+    padding: 10px;
+}
 .block {
     display: block;
     min-height: 120px;
@@ -232,12 +238,6 @@ p#vote a {
 
 /***************** Profil Page ******************/
 
-.profil {
-    background-color: white;
-    min-height: 500px;
-    margin-top: 10px;
-    padding: 10px;
-}
 .profil i {
     color: #999;
 }
@@ -248,6 +248,10 @@ p#vote a {
 }
 .profil-icon {
     text-align: center;
+}
+
+.modif-profil textarea {
+    height: 120px;
 }
 
 
