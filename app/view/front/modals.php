@@ -59,6 +59,18 @@
 									<input type="radio" class="with-gap"  name="inscription-premium" id="inscription-premium-2" placeholder="premium" required="required" value="0"/>
 									<label for="inscription-premium-2">Gratuit</label>																						
                                 </div>
+                                <?php if(isset($categories)): ?>
+                                    <div>
+                                         <label>Les catégories intéressées : </label>
+                                         <select name="inscription-categories[]" id="inscription-categories" multiple>
+                                             <?php foreach($categories as $category): ?>
+                                                <option value="<?php echo $category['id'] ?>">
+                                                    <?php echo $category['label'] ?>
+                                                </option>
+                                             <?php endforeach; ?>
+                                         </select>
+                                    </div>
+                                <?php endif; ?>
                             </p>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>

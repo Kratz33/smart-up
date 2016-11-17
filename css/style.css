@@ -298,6 +298,10 @@ div.billet-footer #billet-date{
     padding: 5px;
 }
 
+.modal-body select {
+    display: block;
+}
+
 /***************** Post Page ********************/
 
 p#vote a {
