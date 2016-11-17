@@ -35,7 +35,6 @@ class CategorieController extends Controller {
         }
 
         AnonymousController::header();
-
         Controller::$app->render('categorie/categories.php', array('categoriesWithBillets' => $categoriesWithBillets));
 
         AnonymousController::modals();
@@ -178,10 +177,10 @@ class CategorieController extends Controller {
         $category       = Categorie::whereId($id)->first();
 
         AnonymousController::header();
+        AnonymousController::leftbarre($categoriesWithBillets);
         Controller::$app->render('billet/billets-by-category.php', array(
             'billets'   => $billetsWithCommentVote,
             'category'  => $category,
-            'categories'=> $categoriesWithBillets,
             'nbPages'   => $nbPages,
         ));
         AnonymousController::modals();
