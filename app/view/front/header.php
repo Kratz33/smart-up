@@ -40,7 +40,6 @@
                                 </ul>
                             <?php else: ?>
                                 <ul class="right hide-on-med-and-down">
-                                    <li><a class="header-get-billets" href="<?php echo $app->urlFor('billets', array('id' => 1)) ?>"><i class="fa fa-power-off fa-2x"></i></a></li>
                                     <li><a class="header-profile-manage" href="<?php echo $app->urlFor('profile') ?>">Gérer mon profil</a></li>
                                 </ul>
                             <?php endif ?>
