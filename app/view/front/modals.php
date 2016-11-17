@@ -50,15 +50,15 @@
 								<div>      
 									
 									<input type="radio" id="inscription-type" class="with-gap" name="inscription-type" placeholder="type" value="0" />
-									<label for="inscription-type">Entrepreneur</label>
+									<label for="inscription-type">Entrepreneur</label>	
 						
 									<input type="radio" class="with-gap" id="inscription-type" name="inscription-type" placeholder="type" value="1" />
 									<label for="inscription-type">Professionnel</label></br>
                                 </div>
 								<div>
-                                    <input type="radio" class="filled-in" name="inscription-premium" id="inscription-premium" placeholder="premium" value="1"/>
+                                    <input type="radio" class="with-gap"  name="inscription-premium" id="inscription-premium" placeholder="premium" value="1"/>
 									<label for="inscription-premium">Premium</label>									
-									<input type="radio" class="filled-in" name="inscription-premium" id="inscription-premium" placeholder="premium" value="0"/>
+									<input type="radio" class="with-gap"  name="inscription-premium" id="inscription-premium" placeholder="premium" value="0"/>
 									<label for="inscription-premium">Gratuit</label>															
                                 </div>
                             </p>
