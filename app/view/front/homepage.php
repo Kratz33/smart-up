@@ -56,7 +56,7 @@
         data.addColumn('string', 'Element');
         data.addColumn('number', 'Percentage');
 
-        data.addRows(<?php echo json_encode($billetsByCategory) ?>);
+        data.addRows(<?php //echo json_encode($billetsByCategory) ?>);
 
         // Instantiate and draw the chart.
         var chart = new google.visualization.PieChart(document.getElementById('myPieChart'));
