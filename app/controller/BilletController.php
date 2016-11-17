@@ -140,21 +140,21 @@ class BilletController extends Controller {
                 foreach($ids as $id){
                     $notification = new \app\models\Notification();
                     $notification->addNotification($id, "test");
-                }                
+                }  
+
+                Controller::$app->redirectTo('billets_by_category', array('id' => 1, 'page' => 1));              
             }
             catch(Exception $e) {
                 echo $e;
             }
-        }
+        }else{
+            $categories = Categorie::all();
         
-        $categories = Categorie::all();
-        
-        Controller::$app->render('billet/add_billet.php', array('categories'=>$categories));
+            Controller::$app->render('billet/add_billet.php', array('categories'=>$categories));
 
-        AnonymousController::modals();
-        AnonymousController::footer();
-        
-        
+            AnonymousController::modals();
+            AnonymousController::footer(); 
+        }   
     }
 
     public function addComment($id) {
@@ -166,7 +166,7 @@ class BilletController extends Controller {
             $comment->id_utilisateur = $_SESSION['userId'];
             $comment->id_billet = $id;
             $comment->save();
-            $this->getBillet($id);
+            $this->getBillet($id,1);
 
             $userId = $_SESSION['userId'];
             $userPseudo = $_SESSION['userPseudo'];

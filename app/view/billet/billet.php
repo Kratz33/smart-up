@@ -1,5 +1,5 @@
 <div class="col-xs-9 mt40">
-    <div class="col-xs-10 col-xs-offset-1">
+    <div class="col-xs-10 col-xs-offset-1 container-interne">
         <h3 id="billet-title">
             <?php echo $billet['titre'] ?>
         </h3>
