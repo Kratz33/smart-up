@@ -149,6 +149,7 @@ nav ul li ul li {
 }
 
 .categories-table{
+    min-width: 177px;
     background-color: white;
     height: 100%;
 }
@@ -166,7 +167,7 @@ nav ul li ul li {
 div.entete{
     display: block;
     height: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
 }
 div.entete p {
     position: relative;
@@ -227,6 +228,9 @@ div.billet-footer #billet-date{
 }
 .collection-item{
     padding: 10px;
+}
+.collection{
+    min-width: 580px;
 }
 .collection div{
     display: inline-block;

@@ -19,18 +19,18 @@
 
     <?php if((isset($_SESSION['userPremium']) && $_SESSION['userPremium']==1) || (isset($_SESSION['userType']) && $_SESSION['userType']==2)): ?>
         <div class="col-xs-10 col-xs-offset-1">
-            <ul class="collection">
+            <ul class="collection col-s-12">
                  <?php foreach($comments as $comment): ?>
-                    <li id="comment-<?php echo $comment['id'] ?>" class="collection-item">
-                        <div class="commentaire-utilisateur">
+                    <li id="comment-<?php echo $comment['id'] ?>" class="collection-item col-s-12">
+                        <div class="commentaire-utilisateur col-s-3">
                             <i class="medium material-icons">perm_identity</i>
                             <span class="utilisateur-pseudo"><?php echo $comment['userPseudo'] ?> <br>
                             note <sapn class="utilisateur-note"><?php echo $comment['userNote'] ?></span></span>
                         </div>
-                        <div class="commentaire-message">
+                        <div class="commentaire-message col-s-6">
                             <p><?php echo $comment['message'] ?></p>
                         </div>
-                        <div class="commentaire-vote">
+                        <div class="commentaire-vote col-s-3">
                             <?php $array = array(
                                 'comment_id' => $comment['id'],
                                 'value'      => 1,
@@ -62,7 +62,7 @@
                                 </span>
                             </a>
                         </div>
-                        <p class="billet-date">
+                        <p class="billet-date col-s-12">
                             le <?php echo $comment['date'] ?>
                         </p>
                     </li>
