@@ -1,12 +1,17 @@
 <div class="col-xs-12 t-center">
     <div class="col-xs-10 col-xs-offset-1 modif-profil container-interne">
-        <h4 class="col-xs-12 mt20">Modifier mon profil</h4>
         <?php if(isset($message)): ?>
             <div class="col-xs-12 t-red t-center">
                 <?php echo $message ?>
             </div>
         <?php endif; ?>
         <form method="post" action="<?php echo $app->urlFor('save_profile') ?>">
+            <h4 class="col-xs-10 mt20">Modifier mon profil</h4>
+            <div class="col-xs-2 mt20 submit">
+                <button type="submit" id="submit-edit-profile" class="submit-edit-profile">
+                    <i class="fa fa-check-square-o fa-4x"></i>
+                </button>
+            </div>
             <div class="col-xs-6 mt20">
                 <label for="edit-profile-lastname">Nom :</label>
                 <input type="text" id="edit-profile-lastname" name="edit-profile-lastname"
@@ -32,28 +37,23 @@
                 <textarea id="edit-profile-description" name="edit-profile-description"
                         cols="40" rows="20"><?php echo $user['description'] ?></textarea>
             </div>
-            <div class="col-xs-12 mt20">
-                <label for="edit-profile-profil">Vous êtes un </label>
+            <div class="col-xs-6 mt20 compte">
                 <?php
                     if ($user['profil'] == 1) {
-                        echo "futur entrepreneur";
+                        echo "<img src='/smart-up/img/badge_particulier.jpg' width='100px' />";
                     } else {
-                        echo "professionnel";
+                        echo "<img src='/smart-up/img/badge_pro.jpg' width='100px' />";
                     }
                 ?>
             </div>
-            <div class="col-xs-12 mt20">
-                <label for="edit-profile-premium">Vous avez un compte </label>
+            <div class="col-xs-6 mt20 compte">
                 <?php
                     if ($user['premium'] == 0) {
-                        echo "gratuit";
+                        echo "<img src='/smart-up/img/badge_premium.jpg' width='100px' />";
                     } else {
-                        echo "premium";
+                        echo "<img src='/smart-up/img/badge_gratuit.jpg' width='100px' />";
                     }
                 ?>
-            </div>
-            <div class="col-xs-12 mt20">
-                <input type="submit" id="submit-edit-profile" class="submit-edit-profile" value="Modifier"/>
             </div>
         </form>
     </div>

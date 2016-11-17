@@ -258,8 +258,19 @@ p#vote a {
 .modif-profil{
     min-height: 500px;
 }
+.modif-profil button {
+    background: transparent;
+    border: none;
+    color: mediumseagreen;
+}
+.modif-profil .submit {
+    text-align: right;
+}
 .modif-profil textarea {
     height: 120px;
+}
+.compte {
+    text-align: center;
 }
 
 
