@@ -1,8 +1,8 @@
-<div class="col-xs-9 mt40 t-center">
+<div class="col-xs-9">
     <div>
         <h3><?php echo $category['label'] ?></h3>
     </div>
-    <div class="entete">
+    <div class="entete col-xs-12">
         <p class="billet-votes-count">
             Nombre Votes
         </p>
@@ -11,7 +11,7 @@
         </p>
     </div>
     <?php foreach ($billets as $billet): ?>
-        <ul class="billets-ul">
+        <ul class="billets-ul col-xs-9">
             <a href="<?php echo $app->urlFor('billet', array('id' => $billet['id'], 'page' => 1)) ?>">
                 <li class="utilisateur-photo">
                     <i class="medium material-icons">perm_identity</i>
