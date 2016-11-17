@@ -40,11 +40,17 @@
                             <?php if(isset($_SESSION["userProfile"])): ?>
                                 <ul class="right hide-on-med-and-down">
 									<li id="notifs-li" class="header-get-notifs">
-										<?php echo count($_SESSION['notifs']['not_read']) ?> <i class="fa fa-bell fa-2x"></i>
+										<?php if(count($_SESSION['notifs']['not_read']) > 0): ?>
+											<?php echo count($_SESSION['notifs']['not_read']) ?> <i class="fa fa-bell fa-2x t-red"></i>
+										<?php else: ?>
+											<i class="fa fa-bell fa-2x t-red"></i>
+										<?php endif; ?>
 										<ul>
 											<?php foreach($_SESSION['notifs']['all'] as $notif): ?>
-												<a href="<?php echo $app->urlFor('billet', array('id' => $notif['posts_id'])) ?>">
-													<li>
+												<a href="<?php echo $app->urlFor('read_notification',
+													array('id' => $notif['id'] ,'post_id' => $notif['posts_id']))
+												?>">
+													<li class="<?php if($notif['lu']) echo 'li-read'?>">
 														<?php echo $notif['text'] ?> le <?php echo $notif['date'] ?>
 													</li>
 												</a>

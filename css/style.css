@@ -93,6 +93,10 @@ nav ul li ul li {
     padding: 0px 20px;
 }
 
+nav ul li ul li.li-read {
+    background-color: #b8b8b8;
+}
+
 nav ul li#notifs-li:hover ul li, nav ul li#notifs-li ul li:hover {
     display:block;
 }

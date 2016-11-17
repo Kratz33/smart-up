@@ -136,3 +136,9 @@ vote:
     controller: CommentController
     action:     vote
     method:     post
+
+read_notification:
+    url: /notification/lue/:id/:post_id
+    controller: NotificationController
+    action:     readNotification
+    method:     get
