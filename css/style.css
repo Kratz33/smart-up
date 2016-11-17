@@ -150,7 +150,7 @@ div.billet-footer #billet-date{
 }
 .collection .commentaire-vote{
     float: right;
-    width: 25px;
+    width: 45px;
     min-height: 100px;
 }
 .collection .commentaire-vote a{
