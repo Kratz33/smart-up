@@ -50,13 +50,12 @@ class AnonymousController extends Controller {
 
 			$i++;
 		}
-
+		$_SESSION['message'] = '';
 		AnonymousController::header();
 		Controller::$app->render('front/homepage.php', array(
 			'billets'			  => $billets,
 			'billetsByCategory'   => $billetsByCategory,
-			'categoriesWithBillets' => $categoriesWithBillets,
-			'message'	=> ''
+			'categoriesWithBillets' => $categoriesWithBillets
 		));
 		AnonymousController::modals();
 		AnonymousController::footer();
