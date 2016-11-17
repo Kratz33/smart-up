@@ -83,6 +83,10 @@ class AnonymousController extends Controller {
 		$app->flash('info', "J'ai ajouté le nom « $nom »");
 		$app->redirectTo('root');
     }
+
+    public function leftbarre($categories){
+    	Controller::$app->render('front/leftbarre.php', array('categories' => $categories));
+    }
 }
 
 ?>

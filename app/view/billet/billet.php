@@ -1,4 +1,4 @@
-<div class="col-xs-12 mt40">
+<div class="col-xs-9 mt40">
     <div class="col-xs-10 col-xs-offset-1">
         <h3 id="billet-title">
             <?php echo $billet['titre'] ?>
@@ -67,6 +67,12 @@
                     </li>
                 <?php endforeach; ?>
             </ul>
+        </div>
+        <div class="pager col-xs-10">
+            Page :
+            <?php for($i=1; $i <= $nbPages; $i++): ?>
+                <a href="<?php echo $app->urlFor('billet', array('id' => $billet['id'], 'page' => $i)); ?>" class=""> <?php echo $i ?> </a>
+            <?php endfor; ?>
         </div>
         <?php if((isset($_SESSION['userType']) &&  $_SESSION['userType'] == 2) || $_SESSION['userId'] == $billet['utilisateur_id']): ?>
             <div class="col-xs-10 col-xs-offset-1">
