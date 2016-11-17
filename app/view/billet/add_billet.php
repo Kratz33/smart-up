@@ -8,8 +8,8 @@
             <div class="form-group">
                 <label for="category" class="col-sm-1 control-label">Catégorie</label>
                 <div class="input-field col-sm-8">
-                    <select name="category" class="form-control">
-                        <option>SELECTIONNER</option>
+                    <select name="category" class="form-control" required>
+                        <option value="">SELECTIONNER</option>
                         <?php 
                             foreach ($categories as $category){
                                 echo "<option value=".$category['id'].">".$category['label']."</option>";
@@ -20,14 +20,14 @@
             </div>
             <div class="form-group">
                 <div class="input-field col-sm-9">
-                  <input name="title" id="title"  type="text" class="validate">
+                  <input name="title" id="title"  type="text" class="validate" required>
                   <label for="title">Titre</label>
                 </div>
             </div>
             <div class="form-group">
                 <div class="input-field col-sm-9">
                     <i class="material-icons prefix">mode_edit</i>
-                    <textarea id="description"  name="description" class="materialize-textarea"></textarea>
+                    <textarea id="description"  name="description" class="materialize-textarea" required></textarea>
                     <label for="description">Description</label>
                 </div>
             </div>
