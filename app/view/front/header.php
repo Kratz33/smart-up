@@ -39,6 +39,18 @@
                             </ul>
                             <?php if(isset($_SESSION["userProfile"])): ?>
                                 <ul class="right hide-on-med-and-down">
+									<li id="notifs-li" class="header-get-notifs">
+										<?php echo count($_SESSION['notifs']['not_read']) ?> <i class="fa fa-bell fa-2x"></i>
+										<ul>
+											<?php foreach($_SESSION['notifs']['all'] as $notif): ?>
+												<a href="<?php echo $app->urlFor('billet', array('id' => $notif['posts_id'])) ?>">
+													<li>
+														<?php echo $notif['text'] ?> le <?php echo $notif['date'] ?>
+													</li>
+												</a>
+											<?php endforeach; ?>
+										</ul>
+									</li>
                                     <li><a class="header-get-billets" href="<?php echo $app->urlFor('categories') ?>"><i class="fa fa-file-text-o fa-2x"></i></a></li>
                                     <li><a class="header-profile-manage" href="<?php echo $app->urlFor('profile') ?>"><i class="fa fa-user-circle-o fa-2x"></i></a></li>
                                 </ul>
