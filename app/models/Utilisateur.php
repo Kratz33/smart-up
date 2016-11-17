@@ -43,5 +43,9 @@ class Utilisateur extends \Illuminate\Database\Eloquent\Model{
             return "Modification échouée, veuillez recommencer ou contacter le webmaster !";
         }
     }
+
+    public function getId() {
+        return $this->id;
+    }
 }
 ?>
