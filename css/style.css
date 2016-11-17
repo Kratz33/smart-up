@@ -20,9 +20,6 @@ body.container {
 .header {
     width: 100%;
 }
-.header .title {
-
-}
 .homepage {
     text-align: center;
     font-size: 36px;
@@ -49,18 +46,90 @@ html{
     position: relative;
     height: 100%;
 }
+.container-interne {
+    background-color: white;
+    margin-top: 10px;
+    padding: 10px;
+}
+.block {
+    display: block;
+    min-height: 120px;
+    margin-bottom: 20px;
+    padding: 20px;
+}
 .t-red {
     color: red;
 }
-
+.bg-blue {
+    background-color: #6299af;
+}
 .t-green {
     color: green;
+}
+.fixed-action-btn {
+    position: fixed;
+    right: 23px;
+    bottom: 23px;
+    padding-top: 15px;
+    margin-bottom: 0;
+    z-index: 998;
 }
 
 /***************** HEADER *****************/
 
 .header-inscription i{
 	margin-right: 10px;
+}
+
+nav ul li#notifs-li  {
+    text-align: right;
+}
+
+nav ul li ul {
+    position: absolute;
+    z-index: 500;
+    line-height: 30px;
+    margin-top: -5px;
+}
+
+nav ul li ul li {
+    display: none;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    background-color: #6299af;
+    padding: 0px 20px;
+    min-width: 300px;
+}
+
+nav ul li ul li.li-read {
+    background-color: #b8b8b8;
+}
+
+nav ul li#notifs-li:hover ul li, nav ul li#notifs-li ul li:hover {
+    display:block;
+}
+
+nav ul li ul li {
+    float: none;
+}
+.header .container {
+    display: inline-block;
+}
+.header .title {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    font-size: 28px;
+    font-family: initial;
+}
+.home {
+    position: absolute;
+    z-index: 1;
+}
+.header .icons-header {
+    position: relative;
+    z-index: 1;
 }
 
 /***************** CATEGORIES *****************/
@@ -81,6 +150,7 @@ html{
 }
 
 .categories-table{
+    min-width: 177px;
     background-color: white;
     height: 100%;
 }
@@ -98,7 +168,7 @@ html{
 div.entete{
     display: block;
     height: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
 }
 div.entete p {
     position: relative;
@@ -160,6 +230,9 @@ div.billet-footer #billet-date{
 .collection-item{
     padding: 10px;
 }
+.collection{
+    min-width: 580px;
+}
 .collection div{
     display: inline-block;
     height: 100%;
@@ -182,6 +255,14 @@ div.billet-footer #billet-date{
     position: relative;
     left:75%;
     font-style: italic;
+}
+
+/***************** ADD BILLET *******************/
+.category-select{
+    margin-top: 40px;
+}
+.add-billet {
+    min-height: 500px;
 }
 
 /***************** FOOTER *******************/
@@ -218,8 +299,52 @@ div.billet-footer #billet-date{
     padding: 5px;
 }
 
+.modal-body select {
+    display: block;
+}
+
 /***************** Post Page ********************/
 
 p#vote a {
     color: #424242;
+}
+
+/***************** Profil Page ******************/
+.profil{
+    min-height: 500px;
+}
+.profil i {
+    color: #999;
+}
+.profile-lastname,
+.profile-mail,
+.profile-description {
+    margin: 0;
+}
+.profil-icon {
+    text-align: center;
+}
+.modif-profil{
+    min-height: 500px;
+}
+.modif-profil .submit {
+    text-align: right;
+}
+.modif-profil textarea {
+    height: 120px;
+}
+.compte {
+    text-align: center;
+}
+
+
+/***************** Tailles **********************/
+.size-xxl {
+    font-size: 80px;
+}
+.size-l {
+    font-size: 28px;
+}
+.size-s {
+    font-size: 14px;
 }

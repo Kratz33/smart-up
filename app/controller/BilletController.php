@@ -30,21 +30,32 @@ class BilletController extends Controller {
         // Division par 20 arrondie à l'unité supérieure pour mettre en place le pager
         $nbPages = ceil($countBillets / 8);
 
-
-        Controller::$app->render('billet/billets.php', array(
-            'billets' => $billets,
-            'nbPages' => $nbPages,
-            'categories' => $categories
-        ));
-
+        Controller::$app->render('billet/billets.php', array('billets' => $billets,'nbPages' => $nbPages));
         AnonymousController::modals();
         AnonymousController::footer();
 
     }
 
-    public function getBillet($id) {
+
+    public function getBillet($id, $page) {
         AnonymousController::header();
-        //$app = new \Slim\Slim();
+
+         // Table Categories
+        $categories = Categorie::all();
+        $categoriesWithBillets = array();
+        $i = 0;
+        foreach($categories as $category) {
+
+            $billetsCount = count(Billet::where('id_categorie', '=', $category['id'])->get());
+
+            $categoriesWithBillets[$i]['id']            = $category['id'];
+            $categoriesWithBillets[$i]['label']         = $category['label'];
+            $categoriesWithBillets[$i]['billets_count'] = $billetsCount;
+
+            $i++;
+        }
+
+        AnonymousController::leftbarre($categoriesWithBillets);
 
         // On récupère le billet avec l'id passé en paramètre
         $billet = Billet::whereId($id)->first();
@@ -55,17 +66,20 @@ class BilletController extends Controller {
         $billet['category_label'] = $categoryLabel;
 
         // On récupère les commentaires liés au billet
-        $comments = $this->getComments($id);
+        $comments = $this->getComments($id, $page);
+        $countComments  = count(Comment::whereIdBillet($billet['id'])->get());
+        $nbPages        = ceil($countComments / 3);
 
-        Controller::$app->render('billet/billet.php', array('billet' => $billet, 'comments' => $comments));
+        Controller::$app->render('billet/billet.php', array('billet' => $billet,'comments' => $comments,'nbPages' => $nbPages));
 
         AnonymousController::modals();
         AnonymousController::footer();
     }
 
-    public function getComments($billet_id) {
+    public function getComments($billet_id, $page) {
         //Récupération des commentaires liés à l'id du billet passé en paramètre
-        $comments = Comment::whereIdBillet($billet_id)->get();
+        $comments = Comment::whereIdBillet($billet_id)->take(3)->skip(3 * ($page - 1))->get();
+
         $i = 0;
         foreach ($comments as $comment) {
             // On récupère le pseudo de l'utilisateur pour l'ajouter à chaque commentaire
@@ -92,6 +106,14 @@ class BilletController extends Controller {
                     $comment['vote_color'] = "";
                 }
             }
+
+            $comment['userPseudo']=$user['pseudo'];
+            $comment['userNote']=0;
+            $voteUtilisateurs = \app\models\Vote::where("commentaire_id", '=', $comment['id'])
+                    ->where("utilisateur_id", '=', $user['id'])->get();
+            foreach ($voteUtilisateurs as $key => $voteUtilisateur) {
+                $comment['userNote'] += $voteUtilisateur['valeur'];
+            }
         }
         // On renvoie le tableau des commentaires avec l'ajout du pseudo pour chaque commentaire
         return $comments;
@@ -107,7 +129,8 @@ class BilletController extends Controller {
             $billet     = new Billet();
             $title      = $app->request->params('title');
             $categoryId = $app->request->params('category');
-            $message    = $app->request->params('description');
+            $description = strip_tags($app->request->params('description'));
+            $message    = nl2br($description);
             $userId     = $_SESSION['userId'];
 
             try {
@@ -125,22 +148,20 @@ class BilletController extends Controller {
                 //$professionnels = Utilisateur::where("type_id", "=", 2)->whereIn("id", $ids)->get()->toArray();
                 foreach($ids as $id){
                     $notification = new \app\models\Notification();
-                    $notification->addNotification($id, "test");
-                }                
+                    $notification->addNotification($id, "Un utilisateur a créé un nouveau post dans une catégorie qui vous intéresse");
+                }  
+
+                Controller::$app->redirectTo('billets_by_category', array('id' => 1, 'page' => 1));              
             }
             catch(Exception $e) {
                 echo $e;
             }
-        }
+        }else{
+            $categories = Categorie::all();
         
-        $categories = Categorie::all();
-        
-        Controller::$app->render('billet/add_billet.php', array('categories'=>$categories));
-
-        AnonymousController::modals();
-        AnonymousController::footer();
-        
-        
+            Controller::$app->render('billet/add_billet.php', array('categories'=>$categories));
+            AnonymousController::footer(); 
+        }   
     }
 
     public function addComment($id) {
@@ -148,11 +169,12 @@ class BilletController extends Controller {
         try {
             $app = new \Slim\Slim();
             $comment = new Comment();
-            $comment->message = $app->request->params('comment-text-add');
+            $message = strip_tags($app->request->params('comment-text-add'));
+            $comment->message = nl2br($message);
             $comment->id_utilisateur = $_SESSION['userId'];
             $comment->id_billet = $id;
             $comment->save();
-            $this->getBillet($id);
+            $this->getBillet($id,1);
 
             $userId = $_SESSION['userId'];
             $userPseudo = $_SESSION['userPseudo'];

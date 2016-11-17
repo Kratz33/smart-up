@@ -7,6 +7,10 @@ class AnonymousController extends Controller {
 
     public static function header() {
 		$app = Controller::$app;
+		if(isset($_SESSION['userId'])) {
+			$notifs = \app\models\Notification::getNotifs($_SESSION['userId']);
+			$_SESSION['notifs'] = $notifs;
+		}
 		$app->render('front/header.php',compact('app'));
     }
 
@@ -15,7 +19,8 @@ class AnonymousController extends Controller {
     }
 
 	public static function modals() {
-		Controller::$app->render('front/modals.php');
+		$categories = \app\models\Categorie::orderBy('label', 'ASC')->get()->toArray();
+		Controller::$app->render('front/modals.php', array('categories' => $categories));
 	}
 
     public static function index(){
@@ -50,14 +55,12 @@ class AnonymousController extends Controller {
 
 			$i++;
 		}
-
-
-
+		$_SESSION['message'] = '';
 		AnonymousController::header();
 		Controller::$app->render('front/homepage.php', array(
 			'billets'			  => $billets,
 			'billetsByCategory'   => $billetsByCategory,
-			'categoriesWithBillets' => $categoriesWithBillets,
+			'categoriesWithBillets' => $categoriesWithBillets
 		));
 		AnonymousController::modals();
 		AnonymousController::footer();
@@ -82,6 +85,10 @@ class AnonymousController extends Controller {
 		$nom = $app->request->post('nom');
 		$app->flash('info', "J'ai ajouté le nom « $nom »");
 		$app->redirectTo('root');
+    }
+
+    public static function leftbarre($categories){
+    	Controller::$app->render('front/leftbarre.php', array('categories' => $categories));
     }
 }
 

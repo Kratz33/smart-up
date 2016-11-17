@@ -114,7 +114,7 @@ add_billet_post:
     method:     post
 
 billet:
-    url:	/billet/:id
+    url:	/billet/:id/:page
     controller: BilletController
     action: 	getBillet
     method:     get
@@ -136,3 +136,9 @@ vote:
     controller: CommentController
     action:     vote
     method:     post
+
+read_notification:
+    url: /notification/lue/:id/:post_id
+    controller: NotificationController
+    action:     readNotification
+    method:     get

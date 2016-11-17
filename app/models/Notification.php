@@ -22,4 +22,19 @@ class Notification extends \Illuminate\Database\Eloquent\Model{
         }
 
     }
+
+    public static function getNotifs($userId) {
+
+        $notifs['not_read'] = \app\models\Notification::where('utilisateur_id', '=', $userId)->where('lu', '=', 0)->get()->toArray();
+        $notifs['all'] = \app\models\Notification::where('utilisateur_id', '=', $userId)->orderBy('date', 'DESC')->get()->toArray();
+        return($notifs);
+
+    }
+
+    public function setRead() {
+
+        $this->lu = 1;
+        $this->save();
+
+    }
 }

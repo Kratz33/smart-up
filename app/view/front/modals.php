@@ -48,14 +48,29 @@
                                            placeholder="Mon mot de passe" required="required" pattern=".{5,15}" title="5 à 15 caractères"/>
                                 </div>
 								<div>
-									<label><input type="radio" id="inscription-type" name="inscription-type" placeholder="type" value="0" />Entrepreneur</label>
-									<label><input type="radio" id="inscription-type" name="inscription-type" placeholder="type" value="1" />Professionnel</label>
-								
+									<input type="radio" id="inscription-type-1" class="with-gap"  name="inscription-type" placeholder="type" required="required" value="1" />
+									<label for="inscription-type-1">Entrepreneur</label>
+									<input type="radio"  id="inscription-type-2"class="with-gap"  name="inscription-type" placeholder="type" required="required" value="2" />
+									<label for="inscription-type-2">Professionnel</label></br>
                                 </div>
 								<div>
-                                    <label for="inscription-premium"><input type="radio" name="inscription-premium" id="inscription-premium" placeholder="premium" value="1"/>Premium</label>									
-									<label for="inscription-premium"><input type="radio" name="inscription-premium" id="inscription-premium" placeholder="premium" value="0"/>Gratuit</label>															
+                                    <input type="radio" class="with-gap"  name="inscription-premium" id="inscription-premium-1" placeholder="premium" required="required" value="1"/>
+									<label for="inscription-premium-1">Premium</label>									
+									<input type="radio" class="with-gap"  name="inscription-premium" id="inscription-premium-2" placeholder="premium" required="required" value="0"/>
+									<label for="inscription-premium-2">Gratuit</label>																						
                                 </div>
+                                <?php if(isset($categories)): ?>
+                                    <div>
+                                         <label>Les catégories intéressées : </label>
+                                         <select name="inscription-categories[]" id="inscription-categories" multiple>
+                                             <?php foreach($categories as $category): ?>
+                                                <option value="<?php echo $category['id'] ?>">
+                                                    <?php echo $category['label'] ?>
+                                                </option>
+                                             <?php endforeach; ?>
+                                         </select>
+                                    </div>
+                                <?php endif; ?>
                             </p>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
@@ -122,7 +137,7 @@
                                 <div>
                                     <label for="label-category">Label de la catégorie :</label></br>
                                     <input type="text" id="label-category" name="label-category"
-                                           placeholder="Le label de la catégorie à ajouter" required=required"></input>
+                                           placeholder="Le label de la catégorie à ajouter" required=required">
                                 </div>
                             </p>
                             <div class="modal-footer">
