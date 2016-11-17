@@ -47,48 +47,17 @@
                                     <input type="password" id="inscription-password-confirm"
                                            placeholder="Mon mot de passe" required="required" pattern=".{5,15}" title="5 à 15 caractères"/>
                                 </div>
-								<div>      
-									
-<<<<<<< HEAD
-<<<<<<< HEAD
-									<input type="radio" id="inscription-type" class="with-gap" name="inscription-type" placeholder="type" value="0" />
-									<label for="inscription-type">Entrepreneur</label>	
-						
-									<input type="radio" class="with-gap" id="inscription-type" name="inscription-type" placeholder="type" value="1" />
-									<label for="inscription-type">Professionnel</label></br>
-                                </div>
-								<div>
-                                    <input type="radio" class="with-gap"  name="inscription-premium" id="inscription-premium" placeholder="premium" value="1"/>
-									<label for="inscription-premium">Premium</label>									
-									<input type="radio" class="with-gap"  name="inscription-premium" id="inscription-premium" placeholder="premium" value="0"/>
-=======
+								<div> 
 									<input type="radio" id="inscription-type" class="with-gap" name="inscription-type" placeholder="type" required="required" value="0" />
-									<label for="inscription-type">Entrepreneur</label>	
-						
-									<input type="radio" class="with-gap" id="inscription-type" name="inscription-type" placeholder="type" required="required" value="1" />
-=======
-									<input type="radio" id="inscription-type"  name="inscription-type" placeholder="type" required="required" value="0" />
-									<label for="inscription-type">Entrepreneur</label>	</br>
-								</div>
-								<div>
+									<label for="inscription-type">Entrepreneur</label>
 									<input type="radio"  id="inscription-type" name="inscription-type" placeholder="type" required="required" value="1" />
->>>>>>> front
 									<label for="inscription-type">Professionnel</label></br>
                                 </div>
 								<div>
                                     <input type="radio" class="with-gap"  name="inscription-premium" id="inscription-premium" placeholder="premium" required="required" value="1"/>
-<<<<<<< HEAD
 									<label for="inscription-premium">Premium</label>									
 									<input type="radio" class="with-gap"  name="inscription-premium" id="inscription-premium" placeholder="premium" required="required" value="0"/>
->>>>>>> front
-									<label for="inscription-premium">Gratuit</label>															
-=======
 									<label for="inscription-premium">Gratuit</label>																							
-                                </div>
-								<div>
-                                    <input type="radio" class="with-gap"  name="inscription-premium" id="inscription-premium" placeholder="premium" required="required" value="1"/>
-									<label for="inscription-premium">Premium</label>																							
->>>>>>> front
                                 </div>
                             </p>
                             <div class="modal-footer">
