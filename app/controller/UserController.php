@@ -56,6 +56,8 @@ class UserController extends Controller
             $_SESSION['userId'] = $user['id'];
             $_SESSION['userPremium'] = $user['premium'];
             $_SESSION['userType'] = $user['type_id'];
+            $_SESSION['userPrenom'] = $user['prenom'];
+            $_SESSION['userNom'] = $user['nom'];
 
             $message = "Bienvenue, vous êtes connecté sous le pseudo " . $user['pseudo'];
         }

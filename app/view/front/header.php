@@ -7,7 +7,7 @@
 
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		<link rel="stylesheet" href="/smart-up/css/bootstrap/bootstrap.min.css" media="screen" type="text/css" rel="stylesheet"/>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="/smart-up/css/font-awesome.min.css" media="screen" type="text/css" rel="stylesheet"/>
 		<link rel="stylesheet" href="/smart-up/css/materialize.css" media="screen" type="text/css" rel="stylesheet"/>
 		<link rel="stylesheet" href="/smart-up/css/style.css" media="screen" type="text/css" rel="stylesheet"/>
 
@@ -33,6 +33,10 @@
                                 <li><a class="header-connexion" id="header-connexion"><i class="fa fa-user fa-2x"></i>Se connecter</a></li>
                             </ul>
                         <?php else: ?>
+                            <ul class="right hide-on-med-and-down">
+                                <li class="header-logged-in">Bienvenue <?php echo $_SESSION["userPrenom"]; ?></li>
+                                <li><a href="<?php echo $app->urlFor('logout');?>" class="header-logout" id="header-logout"><i class="fa fa-power-off fa-2x"></i></a></li>
+                            </ul>
                             <?php if(isset($_SESSION["userProfile"]) && $_SESSION["userProfile"] == "admin"): ?>
                                 <ul class="right hide-on-med-and-down">
                                     <li><a class="header-categories-manage" href="<?php echo $app->urlFor('categories'); ?>">Gérer les catégories</a></li>
@@ -40,14 +44,10 @@
                                 </ul>
                             <?php else: ?>
                                 <ul class="right hide-on-med-and-down">
-                                    <li><a class="header-get-billets" href="<?php echo $app->urlFor('billets', array('id' => 1)) ?>"><i class="fa fa-power-off fa-2x"></i></a></li>
-                                    <li><a class="header-profile-manage" href="<?php echo $app->urlFor('profile') ?>">Gérer mon profil</a></li>
+                                    <li><a class="header-get-billets" href="<?php echo $app->urlFor('billets', array('id' => 1)) ?>"><i class="fa fa-file-text-o fa-2x"></i></a></li>
+                                    <li><a class="header-profile-manage" href="<?php echo $app->urlFor('profile') ?>"><i class="fa fa-user-circle-o fa-2x"></i></a></li>
                                 </ul>
                             <?php endif ?>
-                            <ul class="right hide-on-med-and-down">
-                                <li><a class="header-logged-in"><?php echo $_SESSION["userPseudo"]; ?></a></li>
-                                <li><a href="<?php echo $app->urlFor('logout');?>" class="header-logout" id="header-logout"><i class="fa fa-power-off fa-2x"></i>Se déconnecter</a></li>
-                            </ul>
                         <?php endif ?>
 					</div>
 				</nav>
