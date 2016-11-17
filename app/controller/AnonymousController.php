@@ -55,13 +55,12 @@ class AnonymousController extends Controller {
 			$i++;
 		}
 
-
-
 		AnonymousController::header();
 		Controller::$app->render('front/homepage.php', array(
 			'billets'			  => $billets,
 			'billetsByCategory'   => $billetsByCategory,
 			'categoriesWithBillets' => $categoriesWithBillets,
+			'message'	=> ''
 		));
 		AnonymousController::modals();
 		AnonymousController::footer();
@@ -86,6 +85,10 @@ class AnonymousController extends Controller {
 		$nom = $app->request->post('nom');
 		$app->flash('info', "J'ai ajouté le nom « $nom »");
 		$app->redirectTo('root');
+    }
+
+    public static function leftbarre($categories){
+    	Controller::$app->render('front/leftbarre.php', array('categories' => $categories));
     }
 }
 

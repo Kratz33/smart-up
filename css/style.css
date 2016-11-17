@@ -49,6 +49,17 @@ html{
     position: relative;
     height: 100%;
 }
+.container-interne {
+    background-color: white;
+    margin-top: 10px;
+    padding: 10px;
+}
+.block {
+    display: block;
+    min-height: 120px;
+    margin-bottom: 20px;
+    padding: 20px;
+}
 .t-red {
     color: red;
 }
@@ -209,6 +220,11 @@ div.billet-footer #billet-date{
     font-style: italic;
 }
 
+/***************** ADD BILLET *******************/
+.category-select{
+    margin-top: 40px;
+}
+
 /***************** FOOTER *******************/
 
 .footer {
@@ -247,4 +263,49 @@ div.billet-footer #billet-date{
 
 p#vote a {
     color: #424242;
+}
+
+/***************** Profil Page ******************/
+.profil{
+    min-height: 500px;
+}
+.profil i {
+    color: #999;
+}
+.profile-lastname,
+.profile-mail,
+.profile-description {
+    margin: 0;
+}
+.profil-icon {
+    text-align: center;
+}
+.modif-profil{
+    min-height: 500px;
+}
+.modif-profil button {
+    background: transparent;
+    border: none;
+    color: mediumseagreen;
+}
+.modif-profil .submit {
+    text-align: right;
+}
+.modif-profil textarea {
+    height: 120px;
+}
+.compte {
+    text-align: center;
+}
+
+
+/***************** Tailles **********************/
+.size-xxl {
+    font-size: 80px;
+}
+.size-l {
+    font-size: 28px;
+}
+.size-s {
+    font-size: 14px;
 }

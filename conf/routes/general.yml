@@ -114,7 +114,7 @@ add_billet_post:
     method:     post
 
 billet:
-    url:	/billet/:id
+    url:	/billet/:id/:page
     controller: BilletController
     action: 	getBillet
     method:     get

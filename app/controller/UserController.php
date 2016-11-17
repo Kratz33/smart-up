@@ -26,14 +26,17 @@ class UserController extends Controller
 
             $user = new \app\models\Utilisateur();
             $user->addUser($valueArray);
+
+            $_SESSION['message'] = "Inscription réussi, vous pouvez vous connecter !";
+            Controller::$app->redirectTo('root');
         }
         else {
-            echo "non non non";
-        }
-        Controller::$app->render('utilisateur/inscription.php');
+            Controller::$app->render('utilisateur/inscription.php');
 
-        AnonymousController::modals();
-        AnonymousController::footer();
+            AnonymousController::modals();
+            AnonymousController::footer();
+        }
+        
     }
 
     public function connexion()
@@ -62,7 +65,8 @@ class UserController extends Controller
             Controller::$app->redirectTo('categories');
         }
         else{
-            $message = "Le pseudo et/ou le mot de passe n'est/ne sont pas bon(s), merci de retenter de vous connecter";
+            $_SESSION['message'] = "Pseudo et/ou Mot de passe incorrect";
+            Controller::$app->redirectTo('root');
         }
 
     }
@@ -85,9 +89,20 @@ class UserController extends Controller
 
         // On charge les données de l'utilisateur courant
         $user = Utilisateur::wherePseudo($_SESSION["userPseudo"])->get()->toArray();
+        
+        //Si c'est un pro : affiche les commentaires
+        if($user[0]['type_id'] == 2){
+            $comments = \app\models\Comment::where("id_utilisateur", "=", $user[0]["id"])->get()->toArray();
+            $ids = $this->sortIds($comments);
+            $posts = Billet::wherein("id", $ids)->get()->toArray();
+        }
+        //Si c'est un entrepreneur : affiche les posts
+        else{
+            $posts = Billet::where("id_utilisateur", "=", $user[0]['id'])->get()->toArray();
+        }
 
         AnonymousController::header();
-        Controller::$app->render('utilisateur/profil.php', array('user' => $user[0]));
+        Controller::$app->render('utilisateur/profil.php', array('user' => $user[0], "posts"=>$posts));
         AnonymousController::modals();
         AnonymousController::footer();
     }
@@ -150,5 +165,15 @@ class UserController extends Controller
         AnonymousController::modals();
         AnonymousController::footer();
 
+    }
+    
+    private function sortIds($comments){
+        $ids = array();
+        foreach($comments as $comment){
+            if(!in_array($comment['id_billet'], $ids)){
+                array_push($ids, $comment['id_billet']);
+            } 
+        }
+        return $ids;
     }
 }

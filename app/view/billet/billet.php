@@ -1,5 +1,5 @@
-<div class="col-xs-12 mt40">
-    <div class="col-xs-10 col-xs-offset-1">
+<div class="col-xs-9 mt40">
+    <div class="col-xs-10 col-xs-offset-1 container-interne">
         <h3 id="billet-title">
             <?php echo $billet['titre'] ?>
         </h3>
@@ -24,7 +24,8 @@
                     <li id="comment-<?php echo $comment['id'] ?>" class="collection-item">
                         <div class="commentaire-utilisateur">
                             <i class="medium material-icons">perm_identity</i>
-                            <span class="title"><?php echo $comment['userPseudo'] ?></span>
+                            <span class="utilisateur-pseudo"><?php echo $comment['userPseudo'] ?> <br>
+                            note <sapn class="utilisateur-note"><?php echo $comment['userNote'] ?></span></span>
                         </div>
                         <div class="commentaire-message">
                             <p><?php echo $comment['message'] ?></p>
@@ -68,17 +69,22 @@
                 <?php endforeach; ?>
             </ul>
         </div>
+        <div class="pager col-xs-10">
+            Page :
+            <?php for($i=1; $i <= $nbPages; $i++): ?>
+                <a href="<?php echo $app->urlFor('billet', array('id' => $billet['id'], 'page' => $i)); ?>" class=""> <?php echo $i ?> </a>
+            <?php endfor; ?>
+        </div>
         <?php if((isset($_SESSION['userType']) &&  $_SESSION['userType'] == 2) || $_SESSION['userId'] == $billet['utilisateur_id']): ?>
             <div class="col-xs-10 col-xs-offset-1">
                 <form method="post" action="<?php echo $app->urlFor('add_comment', array('id' => $billet['id'])) ?>">
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <textarea id="comment-text-add" class="materialize-textarea" name="comment-text-add"></textarea>
-                            <label for="comment-text-add">Ajouter un commentaire</label>
-                        </div>
-                        <button class="btn waves-effect waves-light col s12" type="submit" name="action">Commenter
-                        </button>
+                    <div class="input-field col-xs-12">
+                        <textarea id="comment-text-add" class="materialize-textarea" name="comment-text-add" required></textarea>
+                        <label for="comment-text-add">Ajouter un commentaire</label>
                     </div>
+                    <button class="btn waves-effect waves-light col-xs-12" type="submit" name="action">Commenter
+                        <i class="material-icons right">send</i>
+                    </button>
                 </form>
             </div>
         <?php endif; ?>
