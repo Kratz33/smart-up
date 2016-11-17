@@ -7,11 +7,6 @@
         <?php endif; ?>
         <form method="post" action="<?php echo $app->urlFor('save_profile') ?>">
             <h4 class="col-xs-10 mt20">Modifier mon profil</h4>
-            <div class="col-xs-2 mt20 submit">
-                <button type="submit" id="submit-edit-profile" class="submit-edit-profile">
-                    <i class="fa fa-check-square-o fa-4x"></i>
-                </button>
-            </div>
             <div class="col-xs-6 mt20">
                 <label for="edit-profile-lastname">Nom :</label>
                 <input type="text" id="edit-profile-lastname" name="edit-profile-lastname"
@@ -54,6 +49,11 @@
                         echo "<img src='/smart-up/img/badge_gratuit.jpg' width='100px' />";
                     }
                 ?>
+            </div>
+            <div class="fixed-action-btn">
+                <button type="submit" id="submit-edit-profile" class="submit-edit-profile btn-floating btn-large bg-blue">
+                    <i class="material-icons">check</i>
+                </button>
             </div>
         </form>
     </div>
