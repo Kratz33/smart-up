@@ -86,7 +86,9 @@ nav ul li#notifs-li  {
 }
 
 nav ul li ul {
-    position: relative;
+    position: absolute;
+    z-index: 500;
+    line-height: 30px;
     margin-top: -5px;
 }
 

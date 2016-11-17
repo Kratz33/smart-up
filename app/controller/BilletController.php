@@ -170,7 +170,8 @@ class BilletController extends Controller {
         try {
             $app = new \Slim\Slim();
             $comment = new Comment();
-            $comment->message = $app->request->params('comment-text-add');
+            $message = strip_tags($app->request->params('comment-text-add'));
+            $comment->message = nl2br($message);
             $comment->id_utilisateur = $_SESSION['userId'];
             $comment->id_billet = $id;
             $comment->save();
