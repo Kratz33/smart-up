@@ -1,6 +1,6 @@
-<div class="col-xs-9 col-xs-offset-3 mt40">
+<div class="col-xs-10 col-xs-offset-1 mt40 container-interne add-billet">
     <div class="col-xs-10 col-xs-offset-1">
-        <h2>Poser votre question</h2>
+        <h3>Poser votre question</h3>
     </div>
 
     <div class="col-xs-10 col-xs-offset-1">
@@ -31,9 +31,9 @@
                     <label for="description">Description</label>
                 </div>
             </div>
-            <div class="form-group">
-                <button class="btn waves-effect waves-light col-sm-9" type="submit" name="action">Poster
-                    <i class="material-icons right">send</i>
+            <div class="fixed-action-btn">
+                <button type="submit" id="submit-edit-profile" class="submit-edit-profile btn-floating btn-large bg-blue">
+                    <i class="material-icons">send</i>
                 </button>
             </div>
         </form>

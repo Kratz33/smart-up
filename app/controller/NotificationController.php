@@ -7,9 +7,10 @@ use app\models\Utilisateur;
 
 class NotificationController extends Controller {
 
-    public function addNotifification($userId){
+    public function readNotification($notificationId, $postId){
 
-        // ajax has to come !
+        $notif = app\models\Notification::where('id', '=', $notificationId)->first()->setRead();
+        Controller::$app->redirectTo('billet', array('id' => $postId));
 
     }
 
