@@ -37,18 +37,13 @@
                                 <li class="header-logged-in">Bienvenue <?php echo $_SESSION["userPrenom"]; ?></li>
                                 <li><a href="<?php echo $app->urlFor('logout');?>" class="header-logout" id="header-logout"><i class="fa fa-power-off fa-2x"></i></a></li>
                             </ul>
-                            <?php if(isset($_SESSION["userProfile"]) && $_SESSION["userProfile"] == "admin"): ?>
+                            <?php if(isset($_SESSION["userProfile"])): ?>
                                 <ul class="right hide-on-med-and-down">
-                                    <li><a class="header-categories-manage" href="<?php echo $app->urlFor('categories'); ?>">Gérer les catégories</a></li>
-                                    <li><a class="header-users-manage" href="<?php echo $app->urlFor('users'); ?>">Gérer les utilisateurs</a></li>
-                                </ul>
-                            <?php else: ?>
-                                <ul class="right hide-on-med-and-down">
-                                    <li><a class="header-get-billets" href="<?php echo $app->urlFor('billets', array('id' => 1)) ?>"><i class="fa fa-file-text-o fa-2x"></i></a></li>
+                                    <li><a class="header-get-billets" href="<?php echo $app->urlFor('categories') ?>"><i class="fa fa-file-text-o fa-2x"></i></a></li>
                                     <li><a class="header-profile-manage" href="<?php echo $app->urlFor('profile') ?>"><i class="fa fa-user-circle-o fa-2x"></i></a></li>
                                 </ul>
-                            <?php endif ?>
-                        <?php endif ?>
+                            <?php endif; ?>
+                        <?php endif; ?>
 					</div>
 				</nav>
 			</section>
