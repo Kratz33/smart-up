@@ -129,7 +129,8 @@ class BilletController extends Controller {
             $billet     = new Billet();
             $title      = $app->request->params('title');
             $categoryId = $app->request->params('category');
-            $message    = $app->request->params('description');
+            $description = strip_tags($app->request->params('description'));
+            $message    = nl2br($description);
             $userId     = $_SESSION['userId'];
 
             try {
