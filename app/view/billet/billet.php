@@ -21,7 +21,7 @@
         <div class="col-xs-10 col-xs-offset-1">
             <ul class="collection">
                  <?php foreach($comments as $comment): ?>
-                    <li class="collection-item">
+                    <li id="comment-<?php echo $comment['id'] ?>" class="collection-item">
                         <div class="commentaire-utilisateur">
                             <i class="medium material-icons">perm_identity</i>
                             <span class="title"><?php echo $comment['userPseudo'] ?></span>
@@ -36,10 +36,13 @@
                                 'user_id'    => $_SESSION['userId'],
                             );
                             ?>
-                            <a onclick='vote(<?php echo(json_encode($array)); ?>);' >
+                            <a id="vote-pos" onclick='vote(<?php echo(json_encode($array)); ?>);' >
                                 <span class="
                                     <?php if($comment['vote_color'] == 'green'){ echo 't-green'; } ?>">
                                     <i class="material-icons">thumb_up</i>
+                                    <span id="result-pos">
+                                        <?php echo $comment['vote_pos'] ?>
+                                    </span>
                                 </span>
                             </a>
                             <?php $array = array(
@@ -48,10 +51,13 @@
                                 'user_id'    => $_SESSION['userId'],
                                 );
                             ?>
-                            <a onclick='vote(<?php echo(json_encode($array)); ?>);'>
+                            <a id="vote-neg" onclick='vote(<?php echo(json_encode($array)); ?>);'>
                                 <span class="
                                     <?php if($comment['vote_color'] == 'red'){ echo 't-red'; } ?>">
                                         <i class="material-icons">thumb_down</i>
+                                        <span id="result-neg">
+                                            <?php echo $comment['vote_neg'] ?>
+                                        </span>
                                 </span>
                             </a>
                         </div>
