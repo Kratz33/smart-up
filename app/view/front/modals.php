@@ -49,17 +49,20 @@
                                 </div>
 								<div>      
 									
-									<input type="radio" id="inscription-type" class="with-gap" name="inscription-type" placeholder="type" required="required" value="0" />
-									<label for="inscription-type">Entrepreneur</label>	
-						
-									<input type="radio" class="with-gap" id="inscription-type" name="inscription-type" placeholder="type" required="required" value="1" />
+									<input type="radio" id="inscription-type"  name="inscription-type" placeholder="type" required="required" value="0" />
+									<label for="inscription-type">Entrepreneur</label>	</br>
+								</div>
+								<div>
+									<input type="radio"  id="inscription-type" name="inscription-type" placeholder="type" required="required" value="1" />
 									<label for="inscription-type">Professionnel</label></br>
                                 </div>
 								<div>
                                     <input type="radio" class="with-gap"  name="inscription-premium" id="inscription-premium" placeholder="premium" required="required" value="1"/>
-									<label for="inscription-premium">Premium</label>									
-									<input type="radio" class="with-gap"  name="inscription-premium" id="inscription-premium" placeholder="premium" required="required" value="0"/>
-									<label for="inscription-premium">Gratuit</label>															
+									<label for="inscription-premium">Gratuit</label>																							
+                                </div>
+								<div>
+                                    <input type="radio" class="with-gap"  name="inscription-premium" id="inscription-premium" placeholder="premium" required="required" value="1"/>
+									<label for="inscription-premium">Premium</label>																							
                                 </div>
                             </p>
                             <div class="modal-footer">
