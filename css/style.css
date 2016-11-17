@@ -63,6 +63,31 @@ html{
 	margin-right: 10px;
 }
 
+nav ul li#notifs-li  {
+    text-align: right;
+}
+
+nav ul li ul {
+    position: relative;
+    margin-top: -5px;
+}
+
+nav ul li ul li {
+    display: none;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    background-color: #6299af;
+    padding: 0px 20px;
+}
+
+nav ul li#notifs-li:hover ul li, nav ul li#notifs-li ul li:hover {
+    display:block;
+}
+
+nav ul li ul li {
+    float: none;
+}
+
 /***************** CATEGORIES *****************/
 .container .row{
     display: inline-block;

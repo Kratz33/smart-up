@@ -7,6 +7,10 @@ class AnonymousController extends Controller {
 
     public static function header() {
 		$app = Controller::$app;
+		if(isset($_SESSION['userId'])) {
+			$notifs = \app\models\Notification::getNotifs($_SESSION['userId']);
+			$_SESSION['notifs'] = $notifs;
+		}
 		$app->render('front/header.php',compact('app'));
     }
 
