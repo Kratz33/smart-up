@@ -1,11 +1,10 @@
-<div class="pager col-xs-3">
+<div class="categories-div col-xs-3">
     <table class="categories-table">
         <tbody>
              <?php foreach ($categories as $categNav): ?>
                 <tr>
                     <td>
-                        <a href="<?php echo $app->urlFor('billets_by_category', array('id' => $categNav['id'], 'page' => 1)) ?>"><?php echo $categNav['label']; ?></a>
-                        <p><?php echo $categNav['billets_count']; ?></p>
+                        <a href="<?php echo $app->urlFor('billets_by_category', array('id' => $categNav['id'], 'page' => 1)) ?>"><?php echo $categNav['label']; ?> (<?php echo $categNav['billets_count']; ?>)</a>
                     </td>
                 </tr>
             <?php endforeach; ?>
@@ -15,7 +14,7 @@
 <div class="col-xs-9 mt40 t-center">
     <div>
         <h3><?php echo $category['label'] ?></h3>
-        <a class="waves-effect waves-light btn-large"><i class="material-icons right">add</i>Ajouter un billet</a>
+        <a href="/smart-up/billet/add" class="waves-effect waves-light btn-large"><i class="material-icons right">add</i>Ajouter un billet</a>
     </div>
     <div class="entete">
         <p class="billet-votes-count">
@@ -44,7 +43,7 @@
         </ul>
     <?php endforeach; ?>
 </div>
-<div class="pager col-xs-12">
+<div class="pager col-xs-9">
     Page :
     <?php for($i=1; $i <= $nbPages; $i++): ?>
         <a href="<?php echo $app->urlFor('billets_by_category', array('id' => $category['id'], 'page' => $i)); ?>" class=""> <?php echo $i ?> </a>

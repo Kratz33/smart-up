@@ -41,9 +41,13 @@ body.container {
 */
 
 /***************** In All Pages ********************/
+html{
+    height: 100%;
+}
 .container {
     max-width: none;
     position: relative;
+    height: 100%;
 }
 .t-red {
     color: red;
@@ -66,20 +70,29 @@ body.container {
 
 .pager{
     margin: 0;
-    width: 20%;
-}
-table{
-    background-color: white;
+    /*width: 20%;*/
 }
 
-table a{
+.categories-div{
+    width: 20%;
+    height: 92%;
+    margin: 0;
+    padding: 0;
+}
+
+.categories-table{
+    background-color: white;
+    height: 100%;
+}
+.categories-table td{
+    border-bottom: rgba(51, 122, 183, 0.14) solid 1px;
+}
+
+.categories-table a{
     margin-left: 10px;
+    font-size: 18px;
 }
-table p{
-    width: 50px;
-    float: left;
-    text-align: right;;
-}
+
 
 /***************** BILLETS *****************/
 div.entete{
