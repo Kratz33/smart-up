@@ -130,7 +130,8 @@ class UserController extends Controller
         $message = $user->editProfile($app->request->params());
 
         AnonymousController::header();
-        Controller::$app->render('utilisateur/profil.php', array('user' => $user, 'message' => $message));
+        Controller::$app->redirectTo('profile');
+        //Controller::$app->render('utilisateur/profil.php', array('user' => $user, 'message' => $message));
         AnonymousController::modals();
         AnonymousController::footer();
     }
