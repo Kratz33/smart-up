@@ -44,5 +44,36 @@
         <div class="col-xs-12 mt20">
             <a class="edit-profil" href="<?php echo $app->urlFor('edit_profile') ?>">Éditer</a>
         </div>
+        <div class="col-xs-12 mt20">
+            <?php   if(!is_null($posts)){
+                        if($user['type_id'] == 1){
+                            echo "<h3>Vos questions</h3>";
+                        }
+                        else{
+                            echo "<h3>Vos commentaires</h3>";
+                        }
+                        
+                        foreach($posts as $post){
+                            echo "<ul class='billets-ul'>";
+                            echo "<a href='".$app->urlFor('billet', array('id'=>$post["id"]))."'>"
+                                    .'<li class="utilisateur-photo">'
+                                        .'<i class="medium material-icons">perm_identity</i>'
+                                    .' </li>'
+                                    .'<li class="billet-titre">'
+                                        .$post['titre']             
+                                    .'</li>'
+                                    .'<li class="billet-votes-count">'
+                                        .'1'               
+                                    .'</li>'
+                                    .'<li class="billet-commentaires-count">'
+                                        .'1'                
+                                    .'</li>'
+                                .'</a>';
+                            echo "</ul>";
+                        }
+                        
+                    }
+            ?>
+        </div>
     </div>
 </div>
