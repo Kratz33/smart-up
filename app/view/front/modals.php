@@ -47,22 +47,17 @@
                                     <input type="password" id="inscription-password-confirm"
                                            placeholder="Mon mot de passe" required="required" pattern=".{5,15}" title="5 à 15 caractères"/>
                                 </div>
-								<div>      
-									
-									<input type="radio" id="inscription-type"  name="inscription-type" placeholder="type" required="required" value="0" />
-									<label for="inscription-type">Entrepreneur</label>	</br>
-								</div>
 								<div>
-									<input type="radio"  id="inscription-type" name="inscription-type" placeholder="type" required="required" value="1" />
+									<input type="radio" id="inscription-type" class="with-gap"  name="inscription-type" placeholder="type" required="required" value="0" />
+									<label for="inscription-type">Entrepreneur</label>
+									<input type="radio"  id="inscription-type"class="with-gap"  name="inscription-type" placeholder="type" required="required" value="1" />
 									<label for="inscription-type">Professionnel</label></br>
                                 </div>
 								<div>
                                     <input type="radio" class="with-gap"  name="inscription-premium" id="inscription-premium" placeholder="premium" required="required" value="1"/>
-									<label for="inscription-premium">Gratuit</label>																							
-                                </div>
-								<div>
-                                    <input type="radio" class="with-gap"  name="inscription-premium" id="inscription-premium" placeholder="premium" required="required" value="1"/>
-									<label for="inscription-premium">Premium</label>																							
+									<label for="inscription-premium">Premium</label>									
+									<input type="radio" class="with-gap"  name="inscription-premium" id="inscription-premium" placeholder="premium" required="required" value="0"/>
+									<label for="inscription-premium">Gratuit</label>																						
                                 </div>
                             </p>
                             <div class="modal-footer">
@@ -130,7 +125,7 @@
                                 <div>
                                     <label for="label-category">Label de la catégorie :</label></br>
                                     <input type="text" id="label-category" name="label-category"
-                                           placeholder="Le label de la catégorie à ajouter" required=required"></input>
+                                           placeholder="Le label de la catégorie à ajouter" required=required">
                                 </div>
                             </p>
                             <div class="modal-footer">
