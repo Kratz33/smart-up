@@ -13,7 +13,10 @@
     </table>
 </div>
 <div class="col-xs-9 mt40 t-center">
-    <h3><?php echo $category['label'] ?></h3>
+    <div>
+        <h3><?php echo $category['label'] ?></h3>
+        <a class="waves-effect waves-light btn-large"><i class="material-icons right">add</i>Ajouter un billet</a>
+    </div>
     <div class="entete">
         <p class="billet-votes-count">
             Nombre Votes

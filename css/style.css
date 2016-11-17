@@ -63,6 +63,14 @@ body.container {
     display: inline-block;
 }
 
+.pager{
+    margin: 0;
+    width: 20%;
+}
+table{
+    background-color: white;
+}
+
 table a{
     margin-left: 10px;
 }
@@ -75,7 +83,7 @@ table p{
 /***************** BILLETS *****************/
 div.entete{
     display: block;
-    height: 65px;
+    height: 20px;
     margin-bottom: 10px;
 }
 div.entete p {
@@ -93,7 +101,8 @@ div.entete p.billet-commentaires-count{
 .billets-ul{
     display: block;
     width: 100%; 
-    height: 65px;   
+    height: 65px;
+    background-color: white;   
 }
 .billets-ul li{
     display: inline-block;
