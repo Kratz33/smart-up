@@ -13,20 +13,24 @@ class UserController extends Controller
         $app = new \Slim\Slim();
         if(!is_null($app->request->params())) {
             $valueArray = array(
-                'pseudo'    => $app->request->params('inscription-pseudo'),
-                'lastname'  => $app->request->params('inscription-lastname'),
-                'firstname' => $app->request->params('inscription-firstname'),
-                'email'     => $app->request->params('inscription-mail'),
-                'password'  => md5($app->request->params('inscription-password')),
-				'type_id'   => $app->request->params('inscription-type'),
-				'premium'      => $app->request->params('inscription-premium'),
-				
+                'pseudo'     => $app->request->params('inscription-pseudo'),
+                'lastname'   => $app->request->params('inscription-lastname'),
+                'firstname'  => $app->request->params('inscription-firstname'),
+                'email'      => $app->request->params('inscription-mail'),
+                'password'   => md5($app->request->params('inscription-password')),
+				'type_id'    => $app->request->params('inscription-type'),
+				'premium'    => $app->request->params('inscription-premium'),
             );
 
             $user = new \app\models\Utilisateur();
             $user->addUser($valueArray);
 
-            $_SESSION['message'] = "Inscription réussi, vous pouvez vous connecter !";
+            foreach($app->request->params('inscription-categories') as $key => $value) {
+                $utilCateg = new \app\models\UtilCateg();
+                $utilCateg->addUtilCateg($value, $user->getId());
+            }
+
+            $_SESSION['message'] = "Inscription réussie, vous pouvez vous connecter !";
             Controller::$app->redirectTo('root');
         }
         else {

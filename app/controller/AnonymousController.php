@@ -19,7 +19,8 @@ class AnonymousController extends Controller {
     }
 
 	public static function modals() {
-		Controller::$app->render('front/modals.php');
+		$categories = \app\models\Categorie::orderBy('label', 'ASC')->get()->toArray();
+		Controller::$app->render('front/modals.php', array('categories' => $categories));
 	}
 
     public static function index(){

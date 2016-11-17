@@ -148,7 +148,7 @@ class BilletController extends Controller {
                 //$professionnels = Utilisateur::where("type_id", "=", 2)->whereIn("id", $ids)->get()->toArray();
                 foreach($ids as $id){
                     $notification = new \app\models\Notification();
-                    $notification->addNotification($id, "test");
+                    $notification->addNotification($id, "Un utilisateur a créé un nouveau post dans une catégorie qui vous intéresse");
                 }  
 
                 Controller::$app->redirectTo('billets_by_category', array('id' => 1, 'page' => 1));              
