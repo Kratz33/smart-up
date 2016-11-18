@@ -55,7 +55,9 @@ class AnonymousController extends Controller {
 
 			$i++;
 		}
-		$_SESSION['message'] = '';
+		if(!isset($_SESSION['message'])){
+			$_SESSION['message'] = '';
+		}
 		AnonymousController::header();
 		Controller::$app->render('front/homepage.php', array(
 			'billets'			  => $billets,

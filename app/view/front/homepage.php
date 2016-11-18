@@ -7,7 +7,7 @@
     </div>
     
 </div>
-<?php if($_SESSION['message'] == 'Pseudo et/ou Mot de passe incorrect'): ?>
+<?php echo "HELLO"; echo $_SESSION['message']; if($_SESSION['message'] == 'Pseudo et/ou Mot de passe incorrect'): ?>
     <script type="text/javascript">
         Materialize.toast('Pseudo et/ou Mot de passe incorrect', 4000);
     </script>
