@@ -98,6 +98,7 @@ nav ul li ul li {
     border-bottom: 1px solid white;
     background-color: #6299af;
     padding: 0px 20px;
+    min-width: 300px;
 }
 
 nav ul li ul li.li-read {
